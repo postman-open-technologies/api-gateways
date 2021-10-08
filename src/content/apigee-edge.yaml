@@ -1,0 +1,56 @@
+---
+name: Apigee Edge
+provider: Google Cloud Platform
+license: Proprietary
+researchDate: 2021-10
+description: |
+  Design, secure, analyze, and scale APIs anywhere with visibility and control.
+
+  - Build and scale API programs with full API life cycle capabilities
+  - Drive consumption of APIs with flexible developer portal options
+  - Gain actionable insights across the entire API value chain
+  - Monetize API products and maximize the business value of your digital assets
+notes: |
+  - The successor to Apigee Edge is Apigee X, which may have different capabilities.
+links:
+  product:
+    title: Product
+    url: https://cloud.google.com/apigee
+  docs:
+    title: Documentation
+    url: https://docs.apigee.com/api-platform/get-started/get-started
+platformCapabilities:
+  - API Design
+  - API Gateway
+  - Analytics
+  - Monetization
+  - Monitoring
+  - Developer Portal
+  - Threat Protection
+gatewayCapabilities:
+  - Custom Code Execution
+  - Protocol Transformation
+  - Versioning
+  - Traffic Management
+  - Mediation
+customCodeSupport:
+  - Java
+  - JavaScript
+  - Node.js
+  - Python
+upstreamProtocols:
+  - HTTP/1.1
+downstreamProtocols:
+  - HTTP/1.1
+deliveryModels:
+  - SaaS
+  - Customer Managed (Cloud)
+  - Customer Managed (On-Premises)
+  - Hybrid
+policies:
+  OAuth2:
+    capabilities:
+      - Authorization Code
+      - Authorization Code (PKCE)
+      - Client Credentials
+      - Resource Owner Password Credentials

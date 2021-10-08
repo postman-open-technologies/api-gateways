@@ -8,10 +8,18 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        name: "markdown-pages",
+        path: "./src/markdown-pages/",
       },
-      __key: "pages",
+      __key: "markdown-pages",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "source-yaml",
+        path: "./src/content/",
+      },
+      __key: "source-yaml",
     },
   ],
 };
