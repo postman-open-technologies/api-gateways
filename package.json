@@ -19,7 +19,7 @@
     "gatsby-cli": "^3.14.1",
     "gatsby-source-filesystem": "^3.14.0",
     "gatsby-transformer-remark": "^4.11.0",
-    "js-yaml": "^4.1.0",
+    "gatsby-transformer-yaml": "^3.14.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sanitize-html": "^2.5.1",

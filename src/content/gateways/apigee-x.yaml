@@ -3,7 +3,7 @@ class:
   - gateway
 
 properties:
-  name: Apigee Edge
+  name: Apigee X
   provider: Google Cloud Platform
   license: Proprietary
   researchDate: 2021-10
@@ -63,5 +63,5 @@ links:
     href: https://docs.apigee.com/api-platform/get-started/get-started
   - rel:
       - urn:gateway:related
-    title: Apigee X
-    href: apigee-x
+    title: Apigee Edge
+    href: apigee-edge

@@ -1,0 +1,13 @@
+{
+  "name": "gatsby-siren-api-plugin",
+  "version": "1.0.0",
+  "description": "Generate a static Siren API based on YAML files.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Swiber <kswiber@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
