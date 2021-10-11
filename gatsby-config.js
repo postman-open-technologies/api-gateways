@@ -14,6 +14,21 @@ module.exports = {
       __key: "markdown-pages",
     },
     {
+      resolve: "gatsby-transformer-yaml",
+      options: {
+        typeName: "yaml",
+      },
+    },
+    {
+      resolve: "gatsby-siren-api-plugin",
+      options: {
+        typeName: "allYaml",
+        templates: {
+          gateway: require.resolve("./src/templates/platforms.js"),
+        },
+      },
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "source-yaml",
