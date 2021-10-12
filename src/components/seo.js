@@ -54,15 +54,6 @@ const Seo = ({ title, description, image, article }) => {
       )}
 
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-      <link
-        data-react-helmet="true"
-        href="https://postman-toolboxes2.s3.amazonaws.com/assets/bootstrap.min.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://postman-toolboxes2.s3.amazonaws.com/assets/styles.css"
-        rel="stylesheet"
-      />
     </Helmet>
   );
 };

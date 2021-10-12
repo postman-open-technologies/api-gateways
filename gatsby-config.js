@@ -45,6 +45,37 @@ module.exports = {
       },
       __key: "source-yaml",
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "source-images",
+        path: "./src/images/",
+      },
+      __key: "source-images",
+    },
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
+    "gatsby-plugin-sri",
+    {
+      resolve: "gatsby-plugin-typography",
+      options: {
+        pathToConfigModule: "src/utils/typography",
+      },
+    },
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "API Gateways",
+        short_name: "API Gateways",
+        start_url: "/",
+        background_color: "#FF6C37",
+        theme_color: "#FF6C37",
+        display: "minimal-ui",
+        icon: "src/images/favicon.png",
+      },
+    },
   ],
 };
