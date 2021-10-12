@@ -31,7 +31,8 @@ const render = (children) => (data) => {
   const leftNavItems = [
     {
       name: "Gateways",
-      url: "/",
+      parentSlug: "gateways",
+      url: "/gateways",
       subMenuItems1: gateways.map((gateway) => {
         const parts = gateway.node.parent.relativePath.split(".");
         const routePath = parts.slice(0, parts.length - 1).join(".");
@@ -44,6 +45,7 @@ const render = (children) => (data) => {
     {
       name: "Platform Capabilities",
       url: "/platform-capabilities",
+      parentSlug: "platform-capabilities",
       subMenuItems1: platformCapabilityList.map((pc) => {
         return {
           name: pc,
@@ -56,6 +58,7 @@ const render = (children) => (data) => {
     },
     {
       name: "Gateway Capabilities",
+      parentSlug: "gateway-capabilities",
       url: "/gateway-capabilities",
       subMenuItems1: gatewayCapabilityList.map((gc) => {
         return {
