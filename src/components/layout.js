@@ -1,31 +1,15 @@
 import React from "react";
 import Seo from "./seo";
+import Header from "./Header/Header";
+
+import "../styles/config/normalize.css";
+import "./layout.scss";
 
 export default function Layout({ children }) {
   return (
     <>
       <Seo />
-      <div>
-        <header className="header text-center navbar navbar-expand-xl navbar-light">
-          <div className="navbar-brand header__brand">
-            <a className="header__homelink" href="https://www.postman.com/">
-              <img
-                className="header__logo"
-                src="https://postman-toolboxes2.s3.amazonaws.com/assets/postman-logo-horizontal-white.svg"
-                alt="Postman"
-              />
-              <span className="header__title"></span>
-            </a>
-          </div>
-          <button className="navbar-toggler" type="button">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div
-            className="header__right-links justify-content-end navbar-nav mr-auto navbar-collapse collapse show closed"
-            id="navbarSupportedContent"
-          ></div>
-        </header>
-      </div>
+      <Header />
       <div>
         <main>{children}</main>
         <footer className="footer">

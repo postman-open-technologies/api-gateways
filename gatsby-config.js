@@ -46,5 +46,13 @@ module.exports = {
       __key: "source-yaml",
     },
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sass",
+    "gatsby-plugin-sri",
+    {
+      resolve: "gatsby-plugin-typography",
+      options: {
+        pathToConfigModule: "src/utils/typography",
+      },
+    },
   ],
 };
