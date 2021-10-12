@@ -8,30 +8,9 @@ const IndexPage = ({ data }) => {
   const gateways = data.allYaml.edges;
 
   return (
-    <Layout>
-      <div className="container-fluid hero v5_starfield-small-night-sky pb-4">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 hero_title">
-              <h1>API Gateways</h1>
-              <p>Research collected for the most popular API gateways.</p>
-            </div>
-            <div className="col-md-6 hero_image">
-              <img
-                src="https://postman-toolboxes2.s3.amazonaws.com/assets/api.png"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-10 offset-md-1 welcome text-center">
-            <p>{data.site.siteMetadata.description}</p>
-          </div>
-        </div>
-      </div>
+    <Layout data={data}>
+      <h1>API Gateways</h1>
+      <p>Research collected for the most popular API gateways.</p>
       <div className="collection__wrapper">
         <div className="container">
           <hr />
@@ -58,11 +37,16 @@ const IndexPage = ({ data }) => {
                 </div>
                 <div
                   className="col-md-8"
-                  style={{ border: "0px solid #000;", paddingLeft: "20px" }}
+                  style={{
+                    border: "0px solid #000;",
+                    paddingLeft: "20px",
+                  }}
                 >
                   <h4>{properties.name}</h4>
                   <p
-                    dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
+                    dangerouslySetInnerHTML={{
+                      __html: sanitizedDescription,
+                    }}
                   ></p>
                 </div>
               </div>
@@ -85,6 +69,11 @@ export const query = graphql`
     allYaml(sort: { order: ASC, fields: properties___name }) {
       edges {
         node {
+          parent {
+            ... on File {
+              relativePath
+            }
+          }
           properties {
             name
             description
