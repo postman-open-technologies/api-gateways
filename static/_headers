@@ -1,2 +1,2 @@
 /api/*
-  Content-Type: application/json; charset=UTF-8
+  Content-Type: application/vnd.siren+json; charset=UTF-8

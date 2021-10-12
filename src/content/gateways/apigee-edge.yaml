@@ -62,6 +62,10 @@ links:
     title: Documentation
     href: https://docs.apigee.com/api-platform/get-started/get-started
   - rel:
+      - urn:gateway:logo
+    title: Logo
+    href: /images/apigee-edge.svg
+  - rel:
       - urn:gateway:related
     title: Apigee X
     href: apigee-x

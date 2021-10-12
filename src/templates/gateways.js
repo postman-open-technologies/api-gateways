@@ -1,4 +1,5 @@
 import React from "react";
+import Layout from "../components/layout";
 import { Converter } from "showdown";
 import sanitizeHtml from "sanitize-html";
 import { graphql, Link } from "gatsby";
@@ -12,21 +13,23 @@ const gatewayTemplate = ({ data }) => {
   const sanitizedDescription = sanitizeHtml(descriptionHtml);
 
   return (
-    <div style={{ maxWidth: `960px`, margin: `1.45rem` }}>
-      <h2>{name}</h2>
-      <ul>
-        <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
-      </ul>
-      <ul>
-        {links.forEach((item, index) => {
-          return (
-            <li key={`link_${index}`}>
-              <Link to={item.href}>{item.title}</Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <Layout>
+      <div style={{ maxWidth: `960px`, margin: `1.45rem` }}>
+        <h2>{name}</h2>
+        <ul>
+          <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
+        </ul>
+        <ul>
+          {links.forEach((item, index) => {
+            return (
+              <li key={`link_${index}`}>
+                <Link to={item.href}>{item.title}</Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </Layout>
   );
 };
 export default gatewayTemplate;

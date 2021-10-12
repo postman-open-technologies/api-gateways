@@ -1,7 +1,16 @@
+const siteUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8000"
+    : "https://gateways.netlify.app";
+
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "API Gateway Catalog",
+    siteUrl,
+    title: "API Gateways",
+    titleTemplate: "%s - Postman Open Technologies",
+    description: "A research project providing detail on popular API gateways.",
+    twitterUsername: "@getpostman",
+    image: "/images/postman-horizontal-white-logo.svg",
   },
   plugins: [
     "gatsby-transformer-remark",
@@ -24,7 +33,7 @@ module.exports = {
       options: {
         typeName: "allYaml",
         templates: {
-          gateway: require.resolve("./src/templates/platforms.js"),
+          gateway: require.resolve("./src/templates/gateways.js"),
         },
       },
     },
@@ -36,5 +45,6 @@ module.exports = {
       },
       __key: "source-yaml",
     },
+    "gatsby-plugin-react-helmet",
   ],
 };
