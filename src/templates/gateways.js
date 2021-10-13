@@ -17,9 +17,7 @@ const gatewayTemplate = ({ data }) => {
       <h1>{name}</h1>
       <div className="collection__wrapper">
         <div className="container">
-          <ul>
-            <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
-          </ul>
+          <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
           <ul>
             {links.map((item, index) => {
               return (

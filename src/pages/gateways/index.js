@@ -36,11 +36,11 @@ const GatewayIndexPage = ({ data }) => {
                   }}
                 >
                   <h4>{properties.name}</h4>
-                  <p
+                  <div
                     dangerouslySetInnerHTML={{
                       __html: sanitizedDescription,
                     }}
-                  ></p>
+                  />
                 </div>
               </div>
             );
