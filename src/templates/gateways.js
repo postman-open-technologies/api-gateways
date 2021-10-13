@@ -21,7 +21,7 @@ const gatewayTemplate = ({ data }) => {
             <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
           </ul>
           <ul>
-            {links.forEach((item, index) => {
+            {links.map((item, index) => {
               return (
                 <li key={`link_${index}`}>
                   <Link to={item.href}>{item.title}</Link>

@@ -68,4 +68,4 @@ links:
   - rel:
       - urn:gateway:related
     title: Apigee Edge
-    href: apigee-edge
+    href: ../apigee-edge
