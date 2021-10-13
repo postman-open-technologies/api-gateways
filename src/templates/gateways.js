@@ -14,20 +14,22 @@ const gatewayTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <div style={{ maxWidth: `960px`, margin: `1.45rem` }}>
-        <h2>{name}</h2>
-        <ul>
-          <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
-        </ul>
-        <ul>
-          {links.forEach((item, index) => {
-            return (
-              <li key={`link_${index}`}>
-                <Link to={item.href}>{item.title}</Link>
-              </li>
-            );
-          })}
-        </ul>
+      <h1>{name}</h1>
+      <div className="collection__wrapper">
+        <div className="container">
+          <ul>
+            <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
+          </ul>
+          <ul>
+            {links.forEach((item, index) => {
+              return (
+                <li key={`link_${index}`}>
+                  <Link to={item.href}>{item.title}</Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </Layout>
   );

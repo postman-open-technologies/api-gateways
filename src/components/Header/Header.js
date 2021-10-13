@@ -244,7 +244,7 @@ class Header extends React.Component {
           </a>
           <a className="navbar-brand" href="/">
             <span id="learning-center-home-link" className="nav-link uber-nav">
-              API Gateways
+              API Gateway Learning Center
               <span className="sr-only">(current)</span>
             </span>
           </a>

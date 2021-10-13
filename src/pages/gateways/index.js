@@ -9,12 +9,10 @@ const GatewayIndexPage = ({ data }) => {
 
   return (
     <Layout data={data}>
-      <h1>Gateways</h1>
+      <h1>API Gateways</h1>
       <p>Research collected for the most popular API gateways.</p>
       <div className="collection__wrapper">
         <div className="container">
-          <hr />
-          <br />
           {gateways.map(({ node: { properties, links } }) => {
             const converter = new Converter();
             const descriptionHtml = converter.makeHtml(properties.description);
@@ -33,7 +31,7 @@ const GatewayIndexPage = ({ data }) => {
                 <div
                   className="col-md-8"
                   style={{
-                    border: "0px solid #000;",
+                    border: "0px solid #000",
                     paddingLeft: "20px",
                   }}
                 >

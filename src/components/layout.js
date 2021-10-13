@@ -1,11 +1,16 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import Seo from "./seo";
+import ContextualLinks from "../components/ContextualLinks/ContextualLinks";
 import Header from "./Header/Header";
 import LeftNav from "./LeftNav/LeftNav";
+import Seo from "./seo";
 
 import "../styles/config/normalize.css";
 import "./layout.scss";
+import "./doc.scss";
+import pose from "../assets/pose-learning-center.svg";
+
+const { v4: uuidv4 } = require("uuid");
 
 export default function Layout({ children }) {
   return <StaticQuery query={query} render={render(children)} />;
@@ -30,7 +35,7 @@ const render = (children) => (data) => {
 
   const leftNavItems = [
     {
-      name: "Gateways",
+      name: "API Gateways",
       parentSlug: "gateways",
       url: "/gateways",
       subMenuItems1: gateways.map((gateway) => {
@@ -71,6 +76,57 @@ const render = (children) => (data) => {
       }),
     },
   ];
+  const contextual = [
+    {
+      type: "subtitle",
+      name: "Postman Toolboxes",
+    },
+    {
+      type: "link",
+      name: "API Specification Tools",
+      url: "https://postman-toolboxes.github.io/tools/",
+    },
+    {
+      type: "link",
+      name: "API Service Providers",
+      url: "https://postman-toolboxes.github.io/service-providers/",
+    },
+    {
+      type: "link",
+      name: "Postman API Resource Center",
+      url: "https://postman-toolboxes.github.io/postman/",
+    },
+    {
+      type: "link",
+      name: "Postman Newman",
+      url: "https://postman-toolboxes.github.io/newman/",
+    },
+    {
+      type: "subtitle",
+      name: "Open Technologies Research",
+    },
+    {
+      type: "link",
+      name: "Linting Rules",
+      url: "http://rules.linting.org/",
+    },
+    {
+      type: "link",
+      name: "OpenAPI Linting API",
+      url: "https://github.com/postman-open-technologies/openapi-linting-api",
+    },
+    {
+      type: "link",
+      name: "API Lifecycle Blueprints",
+      url: "https://apis.how/",
+    },
+    {
+      type: "link",
+      name: "A History of Compute",
+      url: "https://github.com/postman-open-technologies/history",
+    },
+  ];
+  const contextualLinks = <ContextualLinks key={uuidv4()} links={contextual} />;
   return (
     <>
       <Seo />
@@ -85,6 +141,18 @@ const render = (children) => (data) => {
               <main className="col-sm-12 col-md-12 col-lg-9 offset-lg-0 col-xl-7 doc-page ml-xl-5">
                 {children}
               </main>
+              <aside className="col-sm-12 col-md-12 col-lg-3 offset-lg-0 col-xl-3 offset-xl-1 right-column">
+                <hr className="d-block d-lg-none" />
+                {/*
+                <div className="edit-button">
+                  <EditDoc className="btn btn__small btn__secondary-light edit-button-styles" />
+                </div>
+                */}
+                {contextualLinks}
+                <figure className="sticky posmanaut-dab">
+                  <img src={pose} alt="pose" className="img-fluid" />
+                </figure>
+              </aside>
             </div>
           </div>
         </div>
