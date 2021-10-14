@@ -41,7 +41,6 @@ const render = (children) => (data) => {
       }
 
       for (const item of deliveryModels) {
-        console.log(item);
         deliveryModelList.add(item);
       }
     }
