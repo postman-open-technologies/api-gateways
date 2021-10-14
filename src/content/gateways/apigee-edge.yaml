@@ -64,7 +64,7 @@ links:
   - rel:
       - urn:gateway:logo
     title: Logo
-    href: /images/apigee-edge.svg
+    href: /images/gateways/apigee-edge.svg
   - rel:
       - urn:gateway:related
     title: Apigee X

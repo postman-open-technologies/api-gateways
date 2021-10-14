@@ -15,7 +15,7 @@ import {
 import { CustomHits } from "../Search/searchPreview";
 */
 
-import postmanLogo from "../../images/postman-logo-icon.svg";
+import postmanLogo from "../images/postman-logo-icon.svg";
 
 // window.$ = $;
 

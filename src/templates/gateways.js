@@ -1,5 +1,6 @@
 import React from "react";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
+import { naiveSlugify } from "../helpers/slugify";
 import { Converter } from "showdown";
 import sanitizeHtml from "sanitize-html";
 import { graphql, Link } from "gatsby";
@@ -18,15 +19,75 @@ const gatewayTemplate = ({ data }) => {
       <div className="collection__wrapper">
         <div className="container">
           <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
-          <ul>
-            {links.map((item, index) => {
+          <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+            <h6>Platform Capabilities</h6>
+            {properties.platformCapabilities.map((capability) => {
               return (
-                <li key={`link_${index}`}>
-                  <Link to={item.href}>{item.title}</Link>
-                </li>
+                <Link
+                  style={{
+                    color: "#fff",
+                    margin: "3px",
+                    paddingTop: "5px",
+                    fontSize: "85%",
+                  }}
+                  className="badge badge-info"
+                  to={`/platform-capabilities/${naiveSlugify(capability)}/`}
+                >
+                  {capability}
+                </Link>
               );
             })}
-          </ul>
+          </div>
+          <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+            <h6>Gateway Capabilities</h6>
+            {properties.gatewayCapabilities.map((capability) => {
+              return (
+                <Link
+                  style={{
+                    color: "#fff",
+                    margin: "3px",
+                    paddingTop: "5px",
+                    fontSize: "85%",
+                  }}
+                  className="badge badge-info"
+                  to={`/gateway-capabilities/${naiveSlugify(capability)}/`}
+                >
+                  {capability}
+                </Link>
+              );
+            })}
+          </div>
+          <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+            <h6>Delivery Models</h6>
+            {properties.deliveryModels.map((model) => {
+              return (
+                <Link
+                  style={{
+                    color: "#fff",
+                    margin: "3px",
+                    paddingTop: "5px",
+                    fontSize: "85%",
+                  }}
+                  className="badge badge-info"
+                  to={`/delivery-models/${naiveSlugify(model)}/`}
+                >
+                  {model}
+                </Link>
+              );
+            })}
+          </div>
+          <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+            <h6>Links</h6>
+            <ul>
+              {links.map((item, index) => {
+                return (
+                  <li key={`link_${index}`}>
+                    <Link to={item.href}>{item.title}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     </Layout>

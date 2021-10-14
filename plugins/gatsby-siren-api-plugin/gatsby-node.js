@@ -55,7 +55,7 @@ exports.createPages = async ({ actions, graphql }, pluginOptions) => {
             class
             parent {
               ... on File {
-                relativePath
+                name
               }
             }
           }
@@ -71,8 +71,7 @@ exports.createPages = async ({ actions, graphql }, pluginOptions) => {
     }
 
     const klass = klasses[0];
-    const parts = edge.node.parent.relativePath.split(".");
-    const routePath = parts.slice(0, parts.length - 1).join(".");
+    const routePath = edge.node.parent.name;
 
     const template = templates[klass];
     if (!template) {
@@ -80,7 +79,7 @@ exports.createPages = async ({ actions, graphql }, pluginOptions) => {
     }
 
     actions.createPage({
-      path: routePath,
+      path: `/gateways/${routePath}/`,
       component: template,
       context: { id: edge.node.id },
     });

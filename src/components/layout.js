@@ -1,14 +1,14 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import ContextualLinks from "../components/ContextualLinks/ContextualLinks";
-import Header from "./Header/Header";
-import LeftNav from "./LeftNav/LeftNav";
-import Seo from "./seo";
+import ContextualLinks from "./ContextualLinks";
+import Header from "./Header";
+import LeftNav from "./LeftNav";
+import Seo from "./Seo";
+import { naiveSlugify } from "../helpers/slugify";
 
 import "../styles/config/normalize.css";
-import "./layout.scss";
-import "./doc.scss";
-import pose from "../assets/pose-learning-center.svg";
+import "./Layout.scss";
+import pose from "../images/pose-learning-center.svg";
 
 const { v4: uuidv4 } = require("uuid");
 
@@ -18,64 +18,91 @@ export default function Layout({ children }) {
 
 const render = (children) => (data) => {
   const gateways = data.allYaml.edges;
-  let platformCapabilityList = [];
-  let gatewayCapabilityList = [];
+  const platformCapabilityList = new Set();
+  const gatewayCapabilityList = new Set();
+  const deliveryModelList = new Set();
 
   gateways.forEach(
     ({
       node: {
-        properties: { platformCapabilities, gatewayCapabilities },
+        properties: {
+          platformCapabilities,
+          gatewayCapabilities,
+          deliveryModels,
+        },
       },
     }) => {
-      platformCapabilityList =
-        platformCapabilityList.concat(platformCapabilities);
-      gatewayCapabilityList = gatewayCapabilityList.concat(gatewayCapabilities);
+      for (const item of platformCapabilities) {
+        platformCapabilityList.add(item);
+      }
+
+      for (const item of gatewayCapabilities) {
+        gatewayCapabilityList.add(item);
+      }
+
+      for (const item of deliveryModels) {
+        console.log(item);
+        deliveryModelList.add(item);
+      }
     }
   );
-
   const leftNavItems = [
     {
       name: "API Gateways",
       parentSlug: "gateways",
-      url: "/gateways",
-      subMenuItems1: gateways.map((gateway) => {
-        const parts = gateway.node.parent.relativePath.split(".");
-        const routePath = parts.slice(0, parts.length - 1).join(".");
-        return {
-          name: gateway.node.properties.name,
-          url: `/${routePath}`,
-        };
-      }),
+      url: "/gateways/",
+      subMenuItems1: Array.from(gateways)
+        .sort()
+        .map((gateway) => {
+          const parts = gateway.node.parent.relativePath.split(".");
+          const routePath = parts.slice(0, parts.length - 1).join(".");
+          return {
+            name: gateway.node.properties.name,
+            url: `/${routePath}/`,
+          };
+        }),
     },
     {
       name: "Platform Capabilities",
-      url: "/platform-capabilities",
+      url: "/platform-capabilities/",
       parentSlug: "platform-capabilities",
-      subMenuItems1: platformCapabilityList.map((pc) => {
-        return {
-          name: pc,
-          url: `/platform-capabilities/${pc
-            .toLowerCase()
-            .replace(/ /g, "-")
-            .replace(/[^\w-]+/g, "")}`,
-        };
-      }),
+      subMenuItems1: Array.from(platformCapabilityList)
+        .sort()
+        .map((pc) => {
+          return {
+            name: pc,
+            url: `/platform-capabilities/${naiveSlugify(pc)}/`,
+          };
+        }),
     },
     {
       name: "Gateway Capabilities",
       parentSlug: "gateway-capabilities",
-      url: "/gateway-capabilities",
-      subMenuItems1: gatewayCapabilityList.map((gc) => {
-        return {
-          name: gc,
-          url: `/gateway-capabilities/${gc
-            .toLowerCase()
-            .replace(/ /g, "-")
-            .replace(/[^\w-]+/g, "")}`,
-        };
-      }),
+      url: "/gateway-capabilities/",
+      subMenuItems1: Array.from(gatewayCapabilityList)
+        .sort()
+        .map((gc) => {
+          return {
+            name: gc,
+            url: `/gateway-capabilities/${naiveSlugify(gc)}/`,
+          };
+        }),
+    },
+    {
+      name: "Delivery Models",
+      parentSlug: "delivery-models",
+      url: "/delivery-models/",
+      subMenuItems1: Array.from(deliveryModelList)
+        .sort()
+        .map((dm) => {
+          return {
+            name: dm,
+            url: `/delivery-models/${naiveSlugify(dm)}/`,
+          };
+        }),
     },
   ];
+
   const contextual = [
     {
       type: "subtitle",
@@ -182,6 +209,7 @@ const query = graphql`
             provider
             platformCapabilities
             gatewayCapabilities
+            deliveryModels
           }
           links {
             rel

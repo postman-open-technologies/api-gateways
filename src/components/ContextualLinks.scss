@@ -1,7 +1,6 @@
-@import '../Shared/_variables.scss';
+@import "./common/_variables.scss";
 
 .contextual-links {
-
   .contextual-links__section {
     margin-top: 24px;
     margin-bottom: 8px;
@@ -13,15 +12,15 @@
     margin-bottom: 0;
     padding: 4px 0;
     display: block;
-    
+
     a {
       color: $grey_50;
       font-size: 14px;
       text-decoration: none;
-      border-bottom: 1px solid #FFFFFF;
+      border-bottom: 1px solid #ffffff;
       transition: all 0.2s ease-in-out;
     }
-    
+
     &:hover {
       a {
         color: $blue_60;
@@ -36,21 +35,20 @@
     font-size: 15px;
     font-weight: 600;
     margin-top: 1rem;
-    margin-bottom: .7rem;
+    margin-bottom: 0.7rem;
   }
 
   .contextual-links__alert {
-    border: 4px dashed #CCE5FF;
+    border: 4px dashed #cce5ff;
     border-radius: 4px 4px 4px 4px;
-    padding: .75rem 1.25rem;
-    color: #0C5460;
+    padding: 0.75rem 1.25rem;
+    color: #0c5460;
   }
 
   // tablet view
   @media (min-width: 767px) and (max-width: 990px) {
-      padding-bottom: 80px;
+    padding-bottom: 80px;
   }
-
 
   // mobile view
   @media (max-width: 767px) {

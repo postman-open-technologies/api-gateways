@@ -1,8 +1,11 @@
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import * as React from "react";
-import Layout from "../../components/layout";
-import { Converter } from "showdown";
-import sanitizeHtml from "sanitize-html";
+import Layout from "../../components/Layout";
+import { naiveSlugify } from "../../helpers/slugify";
+//import { Converter } from "showdown";
+//import sanitizeHtml from "sanitize-html";
+
+import "./index.scss";
 
 const GatewayIndexPage = ({ data }) => {
   const gateways = data.allYaml.edges;
@@ -10,37 +13,127 @@ const GatewayIndexPage = ({ data }) => {
   return (
     <Layout data={data}>
       <h1>API Gateways</h1>
-      <p>Research collected for the most popular API gateways.</p>
+      <p>Research collected for the most popular API Gateways.</p>
+      <h2>Overview</h2>
+      <p>
+        The first wave of API Gateways, historically, were offered as a
+        component within larger API Management platforms. As the industry
+        evolved, a new wave of API Gateways were introduced in isolation. Some
+        of these gateway providers are now supplementing their standalone
+        offering with additional tools, often centered around a management
+        approach more conducive to internal API lifecycles.
+      </p>
+      <div>
+        <p>
+          Presented here is a comprehensive, yet not entirely exhaustive, list
+          of popular API Gateways in use today. A few areas of research have
+          been highlighted:
+        </p>
+        <ul>
+          <li>Platform Capabilities</li>
+          <li>Gateway Capabilities</li>
+          <li>Delivery Models</li>
+          <li>Policies</li>
+        </ul>
+      </div>
       <div className="collection__wrapper">
-        <div className="container">
-          {gateways.map(({ node: { properties, links } }) => {
-            const converter = new Converter();
-            const descriptionHtml = converter.makeHtml(properties.description);
-            const sanitizedDescription = sanitizeHtml(descriptionHtml);
+        <h2>Popular Gateways</h2>
+        <div>
+          {gateways.map(({ node: { parent, properties, links } }) => {
+            //const converter = new Converter();
+            //const descriptionHtml = converter.makeHtml(properties.description);
+            //const sanitizedDescription = sanitizeHtml(descriptionHtml);
             const logo = links.find((link) => {
               return link.rel.indexOf("urn:gateway:logo") !== -1;
             }) || { href: "" };
+
             return (
               <div
                 className="row collection"
                 key={`gateway-${properties.name}`}
               >
-                <div className="col-md-2" style={{ border: "0px solid #000" }}>
-                  <img src={logo.href} alt={`${properties.name} Logo`} />
-                </div>
                 <div
                   className="col-md-8"
                   style={{
                     border: "0px solid #000",
                     paddingLeft: "20px",
+                    marginBottom: "30px",
                   }}
                 >
-                  <h4>{properties.name}</h4>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: sanitizedDescription,
-                    }}
-                  />
+                  <div style={{ border: "0px solid #000" }}>
+                    <img
+                      src={logo.href}
+                      alt={`${properties.name}`}
+                      width="100"
+                      style={{ marginBottom: "10px" }}
+                    />
+                    <h3>
+                      <Link to={`/gateways/${parent.name}/`}>
+                        {properties.name}
+                      </Link>
+                    </h3>
+                  </div>
+                  <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+                    <h4>Platform Capabilities</h4>
+                    {properties.platformCapabilities.map((capability) => {
+                      return (
+                        <Link
+                          style={{
+                            color: "#fff",
+                            margin: "3px",
+                            paddingTop: "5px",
+                            fontSize: "85%",
+                          }}
+                          className="badge badge-info"
+                          to={`/platform-capabilities/${naiveSlugify(
+                            capability
+                          )}/`}
+                        >
+                          {capability}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                  <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+                    <h4>Gateway Capabilities</h4>
+                    {properties.gatewayCapabilities.map((capability) => {
+                      return (
+                        <Link
+                          style={{
+                            color: "#fff",
+                            margin: "3px",
+                            paddingTop: "5px",
+                            fontSize: "85%",
+                          }}
+                          className="badge badge-info"
+                          to={`/gateway-capabilities/${naiveSlugify(
+                            capability
+                          )}/`}
+                        >
+                          {capability}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                  <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+                    <h4>Delivery Models</h4>
+                    {properties.deliveryModels.map((model) => {
+                      return (
+                        <Link
+                          style={{
+                            color: "#fff",
+                            margin: "3px",
+                            paddingTop: "5px",
+                            fontSize: "85%",
+                          }}
+                          className="badge badge-info"
+                          to={`/delivery-models/${naiveSlugify(model)}/`}
+                        >
+                          {model}
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             );
@@ -64,13 +157,16 @@ export const query = graphql`
         node {
           parent {
             ... on File {
-              relativePath
+              name
             }
           }
           properties {
             name
             description
             provider
+            platformCapabilities
+            gatewayCapabilities
+            deliveryModels
           }
           links {
             rel

@@ -53,6 +53,14 @@ module.exports = {
       },
       __key: "source-images",
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "source-templates",
+        path: "./src/templates/",
+      },
+      __key: "source-templates",
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     "gatsby-plugin-sri",

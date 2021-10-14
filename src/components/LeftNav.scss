@@ -1,5 +1,4 @@
-@import '../Shared/_variables.scss';
-
+@import "./common/_variables.scss";
 
 .left-nav-re {
   padding: 32px 0px 8px 0px;
@@ -30,9 +29,9 @@
     background-color: inherit;
     color: inherit;
 
-    button:hover{
-        color: $grey_60;
-      }
+    button:hover {
+      color: $grey_60;
+    }
   }
   .currentUrl button:hover {
     color: $grey_90 !important;
@@ -52,12 +51,12 @@
     text-align: left;
 
     @media screen and (max-width: 768px) {
-      text-align: left !important; 
+      text-align: left !important;
     }
     @media screen and (min-width: 768px) {
-      text-align: left !important; 
+      text-align: left !important;
     }
-    &:hover{
+    &:hover {
       color: $grey_60;
     }
   }
@@ -75,15 +74,15 @@
     }
   }
   .caret {
-    transition: transform .2s ease;
+    transition: transform 0.2s ease;
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -o-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    
+
     &.active-caret {
-      transition: transform .2s ease;
+      transition: transform 0.2s ease;
       -webkit-transform: rotate(0deg);
       -moz-transform: rotate(0deg);
       -o-transform: rotate(0deg);
@@ -99,25 +98,27 @@
   // Child ---------------
   .child {
     margin-left: 16px;
-    margin-right:16px;
+    margin-right: 16px;
     margin-bottom: 0px;
     list-style-type: none;
     color: $grey_50;
 
-    &.currentUrl{
+    &.currentUrl {
       font-weight: 600;
 
       > * {
         vertical-align: middle;
       }
-      a:link, a:visited {
+      a:link,
+      a:visited {
         background-color: rgb(242, 242, 242);
         color: $grey_90;
         border-radius: 3px;
       }
     }
-    
-    a:link, a:visited {
+
+    a:link,
+    a:visited {
       display: block;
       text-decoration: none;
       color: inherit;
