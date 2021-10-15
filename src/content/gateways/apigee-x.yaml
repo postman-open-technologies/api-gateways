@@ -42,12 +42,55 @@ properties:
   deliveryModels:
     - SaaS
   policies:
-    - name: OAuth2
+    - category: Traffic Management
       capabilities:
-        - Authorization Code
-        - Authorization Code (PKCE)
-        - Client Credentials
-        - Resource Owner Password Credentials
+        - Cache Lookup
+        - Cache Invalidation
+        - Cache Population
+        - Cache Target Response
+        - Quota
+        - Quota Reset
+        - Spike Arrest
+    - category: Mediation
+      capabilities:
+        - Platform Data Lookup
+        - Request Transformation
+        - Response Transformation
+        - CORS
+        - Context Persistence
+        - GraphQL
+        - Custom Data Storage
+        - JSON to XML
+        - XML to JSON
+        - SOAP Validation
+        - OpenAPI Validation
+        - Custom Exception Handling
+        - XSL Tranformations
+        - Monetization Limits
+    - category: Security
+      capabilities:
+        - IP Access Rules
+        - Basic Authentication
+        - API Key
+        - OAuth 2.0
+        - OAuth 1.0
+        - HMAC
+        - JSON Threat Protection
+        - XML Threat Protection
+        - JWS
+        - JWT
+        - Message Inspection
+        - SAML Assertion
+    - category: Extension
+      capabilities:
+        - Data Collection
+        - HTTP Callout
+        - gRPC Callout
+        - Java
+        - JavaScript
+        - Python
+        - Message Logging
+        - Statistics Collection
 
 links:
   - rel:

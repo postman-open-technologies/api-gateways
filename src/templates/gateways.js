@@ -20,7 +20,7 @@ const gatewayTemplate = ({ data }) => {
         <div className="container">
           <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
           <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-            <h6>Platform Capabilities</h6>
+            <h4>Platform Capabilities</h4>
             {properties.platformCapabilities.map((capability) => {
               return (
                 <Link
@@ -39,7 +39,7 @@ const gatewayTemplate = ({ data }) => {
             })}
           </div>
           <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-            <h6>Gateway Capabilities</h6>
+            <h4>Gateway Capabilities</h4>
             {properties.gatewayCapabilities.map((capability) => {
               return (
                 <Link
@@ -58,7 +58,7 @@ const gatewayTemplate = ({ data }) => {
             })}
           </div>
           <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-            <h6>Delivery Models</h6>
+            <h4>Delivery Models</h4>
             {properties.deliveryModels.map((model) => {
               return (
                 <Link
@@ -77,7 +77,33 @@ const gatewayTemplate = ({ data }) => {
             })}
           </div>
           <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-            <h6>Links</h6>
+            <h4>Gateway Policies</h4>
+            {properties.policies.map((policy) => {
+              return (
+                <div>
+                  <Link
+                    style={{
+                      color: "#fff",
+                      margin: "3px",
+                      paddingTop: "5px",
+                      fontSize: "85%",
+                    }}
+                    className="badge badge-info"
+                    to={`/policies/${naiveSlugify(policy.category)}/`}
+                  >
+                    {policy.category}
+                  </Link>
+                  <ul>
+                    {policy.capabilities.map((capability) => {
+                      return <li>{capability}</li>;
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+          <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+            <h4>Links</h4>
             <ul>
               {links.map((item, index) => {
                 return (
@@ -113,8 +139,8 @@ export const query = graphql`
             customCodeSupport
             deliveryModels
             policies {
+              category
               capabilities
-              name
             }
           }
           links {

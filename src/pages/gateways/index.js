@@ -2,8 +2,6 @@ import { graphql, Link } from "gatsby";
 import * as React from "react";
 import Layout from "../../components/Layout";
 import { naiveSlugify } from "../../helpers/slugify";
-//import { Converter } from "showdown";
-//import sanitizeHtml from "sanitize-html";
 
 import "./index.scss";
 
@@ -33,16 +31,12 @@ const GatewayIndexPage = ({ data }) => {
           <li>Platform Capabilities</li>
           <li>Gateway Capabilities</li>
           <li>Delivery Models</li>
-          <li>Policies</li>
         </ul>
       </div>
       <div className="collection__wrapper">
         <h2>Popular Gateways</h2>
         <div>
           {gateways.map(({ node: { parent, properties, links } }) => {
-            //const converter = new Converter();
-            //const descriptionHtml = converter.makeHtml(properties.description);
-            //const sanitizedDescription = sanitizeHtml(descriptionHtml);
             const logo = links.find((link) => {
               return link.rel.indexOf("urn:gateway:logo") !== -1;
             }) || { href: "" };
@@ -57,23 +51,30 @@ const GatewayIndexPage = ({ data }) => {
                   style={{
                     border: "0px solid #000",
                     paddingLeft: "20px",
+                    marginTop: "20px",
                     marginBottom: "30px",
                   }}
                 >
-                  <div style={{ border: "0px solid #000" }}>
-                    <img
-                      src={logo.href}
-                      alt={`${properties.name}`}
-                      width="100"
-                      style={{ marginBottom: "10px" }}
-                    />
-                    <h3>
+                  <div className="row" style={{ border: "0px solid #000" }}>
+                    <div className="col-sm">
+                      <h3>
+                        <Link to={`/gateways/${parent.name}/`}>
+                          {properties.name}
+                        </Link>
+                      </h3>
+                    </div>
+                    <div className="col-sm">
                       <Link to={`/gateways/${parent.name}/`}>
-                        {properties.name}
+                        <img
+                          src={logo.href}
+                          alt={`${properties.name} Logo`}
+                          width="100"
+                          style={{ marginBottom: "10px" }}
+                        />
                       </Link>
-                    </h3>
+                    </div>
                   </div>
-                  <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+                  <div style={{ marginTop: "0px", marginBottom: "30px" }}>
                     <h4>Platform Capabilities</h4>
                     {properties.platformCapabilities.map((capability) => {
                       return (
