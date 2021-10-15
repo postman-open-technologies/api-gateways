@@ -194,7 +194,10 @@ const query = graphql`
         description
       }
     }
-    allYaml(sort: { order: ASC, fields: properties___name }) {
+    allYaml(
+      filter: { class: { in: ["gateway"] } }
+      sort: { order: ASC, fields: properties___name }
+    ) {
       edges {
         node {
           parent {

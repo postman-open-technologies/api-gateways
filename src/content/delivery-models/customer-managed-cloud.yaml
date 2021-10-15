@@ -1,0 +1,5 @@
+---
+class:
+  - delivery-model
+properties:
+  name: Customer Managed (Cloud)

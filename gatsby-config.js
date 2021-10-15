@@ -34,6 +34,15 @@ module.exports = {
         typeName: "allYaml",
         templates: {
           gateway: require.resolve("./src/templates/gateways.js"),
+          "delivery-model": require.resolve(
+            "./src/templates/delivery-models.js"
+          ),
+          "platform-capability": require.resolve(
+            "./src/templates/platform-capabilities.js"
+          ),
+          "gateway-capability": require.resolve(
+            "./src/templates/gateway-capabilities.js"
+          ),
         },
       },
     },

@@ -1,0 +1,6 @@
+---
+class:
+  - delivery-model
+properties:
+  name: SaaS
+  description: Deployed in the provider's cloud environment.
