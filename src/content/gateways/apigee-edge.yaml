@@ -8,14 +8,19 @@ properties:
   license: Proprietary
   researchDate: 2021-10
   description: |
-    Design, secure, analyze, and scale APIs anywhere with visibility and control.
+    Apigee Edge is a first-generation, commercial gateway platform. 
+    It includes a fully-integrated API Provider experience along with API Consumer 
+    management via a [Developer Portal](../../platform-capabilities/developer-portal/).  
 
-    - Build and scale API programs with full API life cycle capabilities
-    - Drive consumption of APIs with flexible developer portal options
-    - Gain actionable insights across the entire API value chain
-    - Monetize API products and maximize the business value of your digital assets
-  notes: |
-    - The successor to Apigee Edge is Apigee X, which may have different capabilities.
+    While Apigee Edge comes with a number of different delivery options, 
+    newer SaaS deliveries seem to be getting pushed more towards 
+    [Apigee X](../apigee-x/).
+
+    Policies for Apigee Edge API Gateways are configured with XML and can be 
+    accessed via a UI, CLI, and API.
+
+    Apigee Edge has a few different gateway offerings, including both a microgateway 
+    hybrid approach.
   platformCapabilities:
     - API Design
     - API Gateway

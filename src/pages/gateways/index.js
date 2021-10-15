@@ -12,29 +12,75 @@ const GatewayIndexPage = ({ data }) => {
     <Layout data={data}>
       <h1>API Gateways</h1>
       <p>Research collected for the most popular API Gateways.</p>
-      <h2>Overview</h2>
-      <p>
-        The first wave of API Gateways, historically, were offered as a
-        component within larger API Management platforms. As the industry
-        evolved, a new wave of API Gateways were introduced in isolation. Some
-        of these gateway providers are now supplementing their standalone
-        offering with additional tools, often centered around a management
-        approach more conducive to internal API lifecycles.
-      </p>
       <div>
+        <h2>Overview</h2>
         <p>
-          Presented here is a comprehensive, yet not entirely exhaustive, list
-          of popular API Gateways in use today. A few areas of research have
-          been highlighted:
+          The first wave of API Gateways, historically, were offered as a
+          component within larger API Management platforms. As the industry
+          evolved, a new wave of API Gateways were introduced to provide
+          solutions to a changing landscape. Some of these gateway providers are
+          now supplementing their standalone offering with additional tools,
+          often centered around a management approach more conducive to internal
+          API lifecycles.
+        </p>
+        <div>
+          <p>
+            Presented here is a comprehensive, yet not entirely exhaustive, list
+            of popular API Gateways in use today. A few areas of research have
+            been highlighted:
+          </p>
+          <ul>
+            <li>
+              <Link to="/platform-capabilities/">Platform Capabilities</Link>
+            </li>
+            <li>
+              <Link to="/gateway-capabilities/">Gateway Capabilities</Link>
+            </li>
+            <li>
+              <Link to="/delivery-models/">Delivery Models</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h2>Why use an API Gateway?</h2>
+        <p>
+          API Gateways are often a means of centralizing control between API
+          Producers and Consumers. This can take a few different shapes:
         </p>
         <ul>
-          <li>Platform Capabilities</li>
-          <li>Gateway Capabilities</li>
-          <li>Delivery Models</li>
+          <li>
+            Creating a façade pattern to present a RESTful API in front of
+            legacy services.
+          </li>
+          <li>Enforcing authentication and authorization.</li>
+          <li>Rate limiting traffic.</li>
+          <li>
+            Routing to static or dynamic targets (e.g., phased rollouts, canary
+            deployments).
+          </li>
         </ul>
       </div>
+      <div>
+        <h2>Real-world API Gateway deployments</h2>
+        <p>
+          While many API Gateways are looking to cover both the external and
+          internal use cases associated with APIs, it's often common these days
+          to see multiple gateways deployed inside a single environment.
+        </p>
+        <p>
+          Typically, this may take the form of a first-wave gateway platform
+          such as <Link to="/gateways/apigee-edge">Apigee Edge</Link> for
+          external APIs and more lightweight alternatives, such as{" "}
+          <Link to="/gateways/kong/">Kong</Link>, for internal use cases.
+        </p>
+        <p>
+          This multi-gateway reality is becoming a new normal for API
+          practitioners today.
+        </p>
+      </div>
       <div className="collection__wrapper">
-        <h2>Popular Gateways</h2>
+        <h2>Popular API Gateways</h2>
         <div>
           {gateways.map(({ node: { parent, properties, links } }) => {
             const logo = links.find((link) => {

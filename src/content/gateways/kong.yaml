@@ -3,107 +3,101 @@ class:
   - gateway
 
 properties:
-  name: Apigee X
-  provider: Google Cloud Platform
-  license: Proprietary
+  name: Kong
+  provider:
+  license: Proprietary, Open Source (Apache-2.0)
   researchDate: 2021-10
   description: |
-    The Apigee X platform is a newer release than the [Apigee Edge](../apigee-edge/)
-    platform.  It is a SaaS-only delivery with a few different policy options than
-    what's provided by Apigee Edge.
+    Kong is presented as both an open source API Gateway and as an enterprise
+    platform named Kong Konnect.  The platform consists of an API Gateway, 
+    a Service Mesh, a Developer Portal, an API client, and more.
+
+    Kong has gained a strong footing for internal use cases, leading to its
+    integrations with Kubernetes and Envoy.
   platformCapabilities:
     - API Design
     - API Gateway
     - Analytics
-    - Monetization
     - Monitoring
     - Developer Portal
     - Threat Protection
   gatewayCapabilities:
     - Custom Code Execution
     - Protocol Transformation
-    - Versioning
     - Traffic Management
     - Mediation
   customCodeSupport:
-    - Java
-    - JavaScript
-    - Node.js
-    - Python
+    - Lua
   upstreamProtocols:
     - HTTP/1.1
+    - HTTP/2
+    - gRPC
     - GraphQL
+    - Kafka
   downstreamProtocols:
     - HTTP/1.1
-    - gRPC
+    - HTTP/2
     - GraphQL
   deliveryModels:
     - SaaS
+    - Customer Managed (Cloud)
+    - Customer Managed (On-Premises)
   policies:
     - category: Traffic Management
       capabilities:
+        - Canary Release
+        - GraphQL Caching
+        - Rate Limiting
+        - Mocking
         - Cache Lookup
         - Cache Invalidation
         - Cache Population
         - Cache Target Response
         - Quota
-        - Quota Reset
-        - Spike Arrest
+        - Request Size Limiting
+
     - category: Mediation
       capabilities:
-        - Platform Data Lookup
+        - GraphQL to REST
         - Request Transformation
         - Response Transformation
-        - CORS
         - Context Persistence
-        - GraphQL
-        - Custom Data Storage
         - JSON to XML
-        - XML to JSON
-        - SOAP Validation
-        - OpenAPI Validation
-        - Custom Exception Handling
-        - XSL Tranformations
-        - Monetization Limits
     - category: Security
       capabilities:
         - IP Access Rules
         - Basic Authentication
         - API Key
         - OAuth 2.0
-        - OAuth 1.0
         - HMAC
-        - JSON Threat Protection
-        - XML Threat Protection
-        - JWS
         - JWT
+        - LDAP
         - Message Inspection
         - SAML Assertion
+        - Mutual TLS
+        - OpenID Connect
+        - HashiCorp Vault Authentication
+        - Okta
+        - Let's Encrypt
+        - Bot Detection
+        - CORS
+        - Access Control Lists
     - category: Extension
       capabilities:
-        - Data Collection
-        - HTTP Callout
-        - gRPC Callout
-        - Java
-        - JavaScript
-        - Python
-        - Message Logging
+        - Serverless Integrations
+        - Monitoring Integrations
         - Statistics Collection
-
+        - Message Logging
 links:
   - rel:
       - urn:gateway:product
     title: Product
-    href: https://cloud.google.com/apigee
+    href: https://konghq.com/
   - rel:
       - urn:gateway:docs
     title: Documentation
-    href: https://docs.apigee.com/api-platform/get-started/get-started
+    href: https://docs.konghq.com/
   - rel:
       - urn:gateway:logo
     title: Logo
-    href: /images/gateways/apigee-x.svg
-  - rel:
-      - urn:gateway:related
-    title: Apigee Edge
-    href: ../apigee-edge
+    href: /images/gateways/kong.svg

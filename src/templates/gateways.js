@@ -132,7 +132,6 @@ export const query = graphql`
             license
             researchDate
             description
-            notes
             platformCapabilities
             downstreamProtocols
             gatewayCapabilities
