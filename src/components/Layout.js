@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import ContextualLinks from "./ContextualLinks";
+import EditDoc from "../components/EditDoc";
 import Header from "./Header";
 import LeftNav from "./LeftNav";
 import Seo from "./Seo";
@@ -169,11 +170,12 @@ const render = (children) => (data) => {
               </main>
               <aside className="col-sm-12 col-md-12 col-lg-3 offset-lg-0 col-xl-3 offset-xl-1 right-column">
                 <hr className="d-block d-lg-none" />
-                {/*
                 <div className="edit-button">
                   <EditDoc className="btn btn__small btn__secondary-light edit-button-styles" />
+                  <br />
+                  <br />
                 </div>
-                */}
+
                 {contextualLinks}
                 <figure className="sticky posmanaut-dab">
                   <img src={pose} alt="pose" className="img-fluid" />

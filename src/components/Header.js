@@ -276,6 +276,14 @@ class Header extends React.Component {
               </div>
             </span>
           </button>
+          <div
+            className="form-inline my-2 my-lg-0 ml-auto navbar-nav"
+            style={{ transform: "translateY(20%)" }}
+          >
+            <a href="https://god.gw.postman.com/run-collection/10354132-ab067c9b-4eb8-408f-8ade-708004bda02f?action=collection%2Ffork&collection-url=entityId%3D10354132-ab067c9b-4eb8-408f-8ade-708004bda02f%26entityType%3Dcollection%26workspaceId%3Df5c5ab05-0656-42a5-a11d-0403c02c9897">
+              <img src="https://run.pstmn.io/button.svg" alt="Run in Postman" />
+            </a>
+          </div>
           {/*}
           <div
             className="collapse navbar-collapse"
