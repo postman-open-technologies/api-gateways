@@ -25,10 +25,18 @@ exports.onCreateNode = ({ node }) => {
     const filePath = path.join(apiPath, node.relativeDirectory, node.name);
 
     const json = yaml.load(node.internal.content);
+    const value = Object.assign({}, json);
+    if (!value.links) {
+      value.links = [];
+    }
+    value.links.push({
+      rel: ["self"],
+      href: `/api/${path.join(node.relativeDirectory, node.name)}`,
+    });
     if (fs.existsSync(publicPath)) {
-      fs.writeFileSync(filePath, JSON.stringify(json));
+      fs.writeFileSync(filePath, JSON.stringify(value));
     } else {
-      apiResponses[node.relativeDirectory][node.name] = JSON.stringify(json);
+      apiResponses[node.relativeDirectory][node.name] = value;
     }
   }
 };
@@ -84,7 +92,15 @@ exports.onPostBootstrap = () => {
       fs.mkdirSync(dir, { recursive: true });
     }
     for ([key, value] of Object.entries(responses)) {
-      fs.writeFileSync(path.join(dir, key), value);
+      const self = path.join(dir, key);
+      if (!value.links) {
+        value.links = [];
+      }
+      value.links.push({
+        rel: ["self"],
+        href: `/api/${self}`,
+      });
+      fs.writeFileSync(self, JSON.stringify(value));
     }
   }
 };
