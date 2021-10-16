@@ -6,7 +6,6 @@ const publicPath = path.resolve("./public");
 const apiPath = path.join(publicPath, "api");
 
 const apiResponses = {};
-const directories = [];
 
 exports.onCreateNode = ({ node }) => {
   if (node.sourceInstanceName !== "source-yaml") {
@@ -15,29 +14,21 @@ exports.onCreateNode = ({ node }) => {
 
   if (node.internal.type === "Directory" && node.relativePath !== "") {
     const dirPath = path.join(apiPath, node.relativePath);
-    directories.push(dirPath);
-    if (fs.existsSync(publicPath)) {
-      if (!fs.existsSync(apiPath)) {
-        fs.mkdirSync(apiPath);
-      }
+    apiResponses[dirPath] = {};
 
-      if (!fs.existsSync(dirPath)) {
-        fs.mkdirSync(dirPath);
-      }
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath, { recursive: true });
     }
   }
 
   if (node.internal.type === "File") {
-    const full = path.join(apiPath, node.relativePath);
-    const parts = full.split(".");
-    const filePath = parts.slice(0, parts.length - 1).join(".");
+    const filePath = path.join(apiPath, node.relativeDirectory, node.name);
 
     const json = yaml.load(node.internal.content);
-    delete json.id;
     if (fs.existsSync(publicPath)) {
       fs.writeFileSync(filePath, JSON.stringify(json));
     } else {
-      apiResponses[filePath] = JSON.stringify(json);
+      apiResponses[node.relativeDirectory][node.name] = JSON.stringify(json);
     }
   }
 };
@@ -88,17 +79,12 @@ exports.createPages = async ({ actions, graphql }, pluginOptions) => {
 };
 
 exports.onPostBootstrap = () => {
-  if (!fs.existsSync(apiPath)) {
-    fs.mkdirSync(apiPath);
-  }
-
-  for (dir of directories) {
+  for ([dir, responses] of Object.entries(apiResponses)) {
     if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir);
+      fs.mkdirSync(dir, { recursive: true });
     }
-  }
-
-  for ([key, value] of Object.entries(apiResponses)) {
-    fs.writeFileSync(key, value);
+    for ([key, value] of Object.entries(responses)) {
+      fs.writeFileSync(path.join(dir, key), value);
+    }
   }
 };

@@ -1,13 +1,15 @@
 const siteUrl =
-  process.env.NODE_ENV === "development"
+  process.env.NETLIFY == "true"
+    ? "https://gateways.netlify.app"
+    : process.env.NODE_ENV === "development"
     ? "http://localhost:8000"
-    : "https://gateways.netlify.app";
+    : "http://localhost:9000";
 
 module.exports = {
   siteMetadata: {
     siteUrl,
     title: "API Gateways",
-    titleTemplate: "%s - Postman Open Technologies",
+    titleTemplate: "%s",
     description: "A research project providing detail on popular API gateways.",
     twitterUsername: "@getpostman",
     image: "/images/postman-horizontal-white-logo.svg",
