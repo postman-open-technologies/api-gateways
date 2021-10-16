@@ -14,7 +14,7 @@ exports.onCreateNode = ({ node }) => {
 
   if (node.internal.type === "Directory" && node.relativePath !== "") {
     const dirPath = path.join(apiPath, node.relativePath);
-    apiResponses[dirPath] = {};
+    apiResponses[node.relativePath] = {};
 
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true });
@@ -35,9 +35,8 @@ exports.onCreateNode = ({ node }) => {
     });
     if (fs.existsSync(publicPath)) {
       fs.writeFileSync(filePath, JSON.stringify(value));
-    } else {
-      apiResponses[node.relativeDirectory][node.name] = value;
     }
+    apiResponses[node.relativeDirectory][node.name] = value;
   }
 };
 
@@ -88,19 +87,30 @@ exports.createPages = async ({ actions, graphql }, pluginOptions) => {
 
 exports.onPostBootstrap = () => {
   for ([dir, responses] of Object.entries(apiResponses)) {
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
+    const dirPath = path.join(apiPath, dir);
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath, { recursive: true });
     }
+    const values = [];
     for ([key, value] of Object.entries(responses)) {
-      const self = path.join(dir, key);
-      if (!value.links) {
-        value.links = [];
-      }
-      value.links.push({
-        rel: ["self"],
-        href: `/api/${self}`,
-      });
+      const self = path.join(dirPath, key);
+      values.push(value);
       fs.writeFileSync(self, JSON.stringify(value));
+    }
+    if (values.length > 0) {
+      fs.writeFileSync(
+        path.join(dirPath, "index.html"),
+        JSON.stringify({
+          class: [dir],
+          entities: values,
+          links: [
+            {
+              rel: ["self"],
+              href: `/api/${dir}/`,
+            },
+          ],
+        })
+      );
     }
   }
 };
