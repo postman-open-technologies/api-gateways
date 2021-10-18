@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "../components/Layout";
-import { naiveSlugify } from "../helpers/slugify";
+import { graphql, Link } from "gatsby";
 import { Converter } from "showdown";
 import sanitizeHtml from "sanitize-html";
-import { graphql, Link } from "gatsby";
+import Layout from "../components/Layout";
+import GatewayTagCategories from "../components/GatewayTagCategories";
 
 const gatewayTemplate = ({ data }) => {
   const { properties, links } = data.allYaml.edges[0].node;
@@ -19,45 +19,7 @@ const gatewayTemplate = ({ data }) => {
       <div className="collection__wrapper">
         <div className="container">
           <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
-          <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-            <h4>Platform Capabilities</h4>
-            {properties.platformCapabilities.map((capability) => {
-              return (
-                <Link
-                  className="tag"
-                  to={`/platform-capabilities/${naiveSlugify(capability)}/`}
-                >
-                  {capability}
-                </Link>
-              );
-            })}
-          </div>
-          <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-            <h4>Gateway Capabilities</h4>
-            {properties.gatewayCapabilities.map((capability) => {
-              return (
-                <Link
-                  className="tag"
-                  to={`/gateway-capabilities/${naiveSlugify(capability)}/`}
-                >
-                  {capability}
-                </Link>
-              );
-            })}
-          </div>
-          <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-            <h4>Delivery Models</h4>
-            {properties.deliveryModels.map((model) => {
-              return (
-                <Link
-                  className="tag"
-                  to={`/delivery-models/${naiveSlugify(model)}/`}
-                >
-                  {model}
-                </Link>
-              );
-            })}
-          </div>
+          <GatewayTagCategories properties={properties} />
           <div style={{ marginTop: "30px", marginBottom: "30px" }}>
             <h4>Gateway Policies</h4>
             {properties.policies.map((policy) => {
