@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 
 class EditDoc extends Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props);
 
     this.state = {
       pathRoute: "",
     };
-  }
+  }*/
 
-  componentDidMount() {
+  /*componentDidMount() {
     this.setState({
       pathRoute: window.location.pathname.slice(0, -1),
     });
-  }
+  }*/
 
   render() {
     const { className } = this.props;
     const classes = className ? `${className}` : "";
-    const { pathRoute } = this.state;
+    //const { pathRoute } = this.state;
     return (
       <a
         id="GTM-LC-id"
