@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
-import TagCardText from "./TagCardText";
+import GatewayTagCategories from "./GatewayTagCategories";
 
 const Gateway = ({ gateway }) => {
   const {
@@ -39,21 +39,7 @@ const Gateway = ({ gateway }) => {
             marginBottom: "30px",
           }}
         >
-          <TagCardText
-            title="Platform Capabilities"
-            slugRoot="/platform-capabilities"
-            items={properties.platformCapabilities}
-          />
-          <TagCardText
-            title="Gateway Capabilities"
-            slugRoot="/gateway-capabilities"
-            items={properties.gatewayCapabilities}
-          />
-          <TagCardText
-            title="Delivery Models"
-            slugRoot="/delivery-models"
-            items={properties.deliveryModels}
-          />
+          <GatewayTagCategories properties={properties} />
         </div>
         <Link
           to={`/gateways/${parent.name}/`}
