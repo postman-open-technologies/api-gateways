@@ -24,13 +24,7 @@ const gatewayTemplate = ({ data }) => {
             {properties.platformCapabilities.map((capability) => {
               return (
                 <Link
-                  style={{
-                    color: "#fff",
-                    margin: "3px",
-                    paddingTop: "5px",
-                    fontSize: "85%",
-                  }}
-                  className="badge badge-info"
+                  className="tag"
                   to={`/platform-capabilities/${naiveSlugify(capability)}/`}
                 >
                   {capability}
@@ -43,13 +37,7 @@ const gatewayTemplate = ({ data }) => {
             {properties.gatewayCapabilities.map((capability) => {
               return (
                 <Link
-                  style={{
-                    color: "#fff",
-                    margin: "3px",
-                    paddingTop: "5px",
-                    fontSize: "85%",
-                  }}
-                  className="badge badge-info"
+                  className="tag"
                   to={`/gateway-capabilities/${naiveSlugify(capability)}/`}
                 >
                   {capability}
@@ -62,13 +50,7 @@ const gatewayTemplate = ({ data }) => {
             {properties.deliveryModels.map((model) => {
               return (
                 <Link
-                  style={{
-                    color: "#fff",
-                    margin: "3px",
-                    paddingTop: "5px",
-                    fontSize: "85%",
-                  }}
-                  className="badge badge-info"
+                  className="tag"
                   to={`/delivery-models/${naiveSlugify(model)}/`}
                 >
                   {model}
@@ -81,18 +63,7 @@ const gatewayTemplate = ({ data }) => {
             {properties.policies.map((policy) => {
               return (
                 <div>
-                  <Link
-                    style={{
-                      color: "#fff",
-                      margin: "3px",
-                      paddingTop: "5px",
-                      fontSize: "85%",
-                    }}
-                    className="badge badge-info"
-                    to={`/policies/${naiveSlugify(policy.category)}/`}
-                  >
-                    {policy.category}
-                  </Link>
+                  {policy.category}
                   <ul>
                     {policy.capabilities.map((capability) => {
                       return <li>{capability}</li>;

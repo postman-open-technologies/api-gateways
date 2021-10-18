@@ -1,0 +1,14 @@
+.tag {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid;
+  background-color: #fff;
+  height: auto !important;
+  margin: 3px;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.75rem;
+}
+.tag:hover {
+  text-decoration: underline !important;
+}

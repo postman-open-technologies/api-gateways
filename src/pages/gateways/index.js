@@ -1,9 +1,9 @@
 import { graphql, Link } from "gatsby";
 import * as React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import Layout from "../../components/Layout";
 import { naiveSlugify } from "../../helpers/slugify";
-
-import "./index.scss";
 
 const GatewayIndexPage = ({ data }) => {
   const gateways = data.allYaml.edges;
@@ -79,108 +79,124 @@ const GatewayIndexPage = ({ data }) => {
           practitioners today.
         </p>
       </div>
-      <div className="collection__wrapper">
+      <div>
         <h2>Popular API Gateways</h2>
         <div>
           {gateways.map(({ node: { parent, properties, links } }) => {
-            const logo = links.find((link) => {
+            /*const logo = links.find((link) => {
               return link.rel.indexOf("urn:gateway:logo") !== -1;
+            }) || { href: "" };*/
+            const product = links.find((link) => {
+              return link.rel.indexOf("urn:gateway:product") !== -1;
             }) || { href: "" };
 
             return (
               <div
-                className="row collection"
+                className="card"
                 key={`gateway-${properties.name}`}
+                style={{ marginBottom: "20px", borderRadius: "8px" }}
               >
-                <div
-                  className="col-md-8"
-                  style={{
-                    border: "0px solid #000",
-                    paddingLeft: "20px",
-                    marginTop: "20px",
-                    marginBottom: "30px",
-                  }}
-                >
-                  <div className="row" style={{ border: "0px solid #000" }}>
-                    <div className="col-sm">
-                      <h3>
-                        <Link to={`/gateways/${parent.name}/`}>
-                          {properties.name}
-                        </Link>
-                      </h3>
+                <div className="card-body">
+                  <h3 className="card-title">{properties.name}</h3>
+                  <Link
+                    to={`/gateways/${parent.name}/`}
+                    className="card-link"
+                    style={{
+                      height: "auto",
+                      fontWeight: "bold",
+                    }}
+                  ></Link>
+                  <div
+                    style={{
+                      border: "0px solid #000",
+                      marginTop: "20px",
+                      marginBottom: "30px",
+                    }}
+                  >
+                    {/*<div className="row" style={{ border: "0px solid #000" }}>
+                      <div className="col-sm">
+                        <Link to={`/gateways/${parent.name}/`}></Link>
+                      </div>
+                      <img
+                        src={logo.href}
+                        alt={`${properties.name} Logo`}
+                        width="100"
+                        style={{ marginBottom: "10px" }}
+                      />
+                    </div>*/}
+                    <div
+                      style={{ marginTop: "0px", marginBottom: "30px" }}
+                      className="card-text"
+                    >
+                      <h4>Platform Capabilities</h4>
+                      {properties.platformCapabilities.map((capability) => {
+                        return (
+                          <Link
+                            className="tag"
+                            to={`/platform-capabilities/${naiveSlugify(
+                              capability
+                            )}/`}
+                          >
+                            {capability}
+                          </Link>
+                        );
+                      })}
                     </div>
-                    <div className="col-sm">
-                      <Link to={`/gateways/${parent.name}/`}>
-                        <img
-                          src={logo.href}
-                          alt={`${properties.name} Logo`}
-                          width="100"
-                          style={{ marginBottom: "10px" }}
-                        />
-                      </Link>
+                    <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+                      <h4>Gateway Capabilities</h4>
+                      {properties.gatewayCapabilities.map((capability) => {
+                        return (
+                          <Link
+                            className="tag"
+                            to={`/gateway-capabilities/${naiveSlugify(
+                              capability
+                            )}/`}
+                          >
+                            {capability}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                    <div style={{ marginTop: "30px", marginBottom: "30px" }}>
+                      <h4>Delivery Models</h4>
+                      {properties.deliveryModels.map((model) => {
+                        return (
+                          <Link
+                            className="tag"
+                            to={`/delivery-models/${naiveSlugify(model)}/`}
+                          >
+                            {model}
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
-                  <div style={{ marginTop: "0px", marginBottom: "30px" }}>
-                    <h4>Platform Capabilities</h4>
-                    {properties.platformCapabilities.map((capability) => {
-                      return (
-                        <Link
-                          style={{
-                            color: "#fff",
-                            margin: "3px",
-                            paddingTop: "5px",
-                            fontSize: "85%",
-                          }}
-                          className="badge badge-info"
-                          to={`/platform-capabilities/${naiveSlugify(
-                            capability
-                          )}/`}
-                        >
-                          {capability}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                  <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-                    <h4>Gateway Capabilities</h4>
-                    {properties.gatewayCapabilities.map((capability) => {
-                      return (
-                        <Link
-                          style={{
-                            color: "#fff",
-                            margin: "3px",
-                            paddingTop: "5px",
-                            fontSize: "85%",
-                          }}
-                          className="badge badge-info"
-                          to={`/gateway-capabilities/${naiveSlugify(
-                            capability
-                          )}/`}
-                        >
-                          {capability}
-                        </Link>
-                      );
-                    })}
-                  </div>
-                  <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-                    <h4>Delivery Models</h4>
-                    {properties.deliveryModels.map((model) => {
-                      return (
-                        <Link
-                          style={{
-                            color: "#fff",
-                            margin: "3px",
-                            paddingTop: "5px",
-                            fontSize: "85%",
-                          }}
-                          className="badge badge-info"
-                          to={`/delivery-models/${naiveSlugify(model)}/`}
-                        >
-                          {model}
-                        </Link>
-                      );
-                    })}
-                  </div>
+                  <Link
+                    to={`/gateways/${parent.name}/`}
+                    className="card-link"
+                    style={{
+                      height: "auto",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Go to {properties.name} -&gt;
+                  </Link>
+                  <a
+                    href={product.href}
+                    className="card-link"
+                    style={{
+                      height: "auto",
+                      marginLeft: "30px",
+                    }}
+                    target="_blank"
+                  >
+                    Product Page
+                    <FontAwesomeIcon
+                      style={{ marginLeft: "10px" }}
+                      icon={faExternalLinkAlt}
+                      size="1x"
+                    />
+                  </a>
                 </div>
               </div>
             );

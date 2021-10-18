@@ -2,6 +2,7 @@
 @import "../styles/config/normalize.css";
 @import "../styles/config/typography.css";
 @import "./common/doc.scss";
+@import "./common/gateways.scss";
 
 @-moz-document url-prefix() {
   html {
