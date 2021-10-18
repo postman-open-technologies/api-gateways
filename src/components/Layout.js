@@ -13,11 +13,11 @@ import pose from "../images/pose-learning-center.svg";
 
 const { v4: uuidv4 } = require("uuid");
 
-export default function Layout({ children }) {
-  return <StaticQuery query={query} render={render(children)} />;
+export default function Layout({ children, location }) {
+  return <StaticQuery query={query} render={render(children, location)} />;
 }
 
-const render = (children) => (data) => {
+const render = (children, location) => (data) => {
   const gateways = data.allYaml.edges;
   const platformCapabilityList = new Set();
   const gatewayCapabilityList = new Set();
@@ -171,7 +171,10 @@ const render = (children) => (data) => {
               <aside className="col-sm-12 col-md-12 col-lg-3 offset-lg-0 col-xl-3 offset-xl-1 right-column">
                 <hr className="d-block d-lg-none" />
                 <div className="edit-button">
-                  <EditDoc className="btn btn__small btn__secondary-light edit-button-styles" />
+                  <EditDoc
+                    location={location}
+                    className="btn btn__small btn__secondary-light edit-button-styles"
+                  />
                   <br />
                   <br />
                 </div>

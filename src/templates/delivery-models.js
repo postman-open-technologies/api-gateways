@@ -3,7 +3,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import GatewayList from "../components/GatewayList";
 
-const deliveryModelTemplate = ({ data }) => {
+const deliveryModelTemplate = ({ location, data }) => {
   const { properties } = data.allYaml.edges[0].node;
   const { name } = properties;
   const gateways = data.gateways.edges.filter(({ node }) => {
@@ -11,7 +11,7 @@ const deliveryModelTemplate = ({ data }) => {
   });
 
   return (
-    <Layout>
+    <Layout location={location}>
       <h1>{name}</h1>
       <div className="collection__wrapper">
         <h2>Related API Gateways</h2>

@@ -5,7 +5,7 @@ import sanitizeHtml from "sanitize-html";
 import Layout from "../components/Layout";
 import GatewayTagCategories from "../components/GatewayTagCategories";
 
-const gatewayTemplate = ({ data }) => {
+const gatewayTemplate = ({ data, location }) => {
   const { properties, links } = data.allYaml.edges[0].node;
   const { name, description } = properties;
 
@@ -14,7 +14,7 @@ const gatewayTemplate = ({ data }) => {
   const sanitizedDescription = sanitizeHtml(descriptionHtml);
 
   return (
-    <Layout>
+    <Layout location={location}>
       <h1>{name}</h1>
       <div className="collection__wrapper">
         <div className="container">

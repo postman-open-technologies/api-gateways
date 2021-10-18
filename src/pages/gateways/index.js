@@ -3,11 +3,11 @@ import React from "react";
 import Layout from "../../components/Layout";
 import GatewayList from "../../components/GatewayList";
 
-const GatewayIndexPage = ({ data }) => {
+const GatewayIndexPage = ({ data, location }) => {
   const gateways = data.allYaml.edges;
 
   return (
-    <Layout data={data}>
+    <Layout data={data} location={location}>
       <h1>API Gateways</h1>
       <p>Research collected for the most popular API Gateways.</p>
       <div>
