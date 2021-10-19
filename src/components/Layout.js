@@ -9,6 +9,7 @@ import { naiveSlugify } from "../helpers/slugify";
 
 import "../styles/config/normalize.css";
 import "./Layout.scss";
+import "./common/Buttons.scss";
 import pose from "../images/pose-learning-center.svg";
 
 const { v4: uuidv4 } = require("uuid");
