@@ -1,8 +1,6 @@
 import React from "react";
 
 const EditDoc = ({ location = { pathname: "" }, className }) => {
-  console.log("location from EditDoc:", location);
-
   const repo = "https://github.com/kevinswiber/api-gateways";
   const branch = `/blob/main`;
 
