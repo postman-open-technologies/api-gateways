@@ -248,34 +248,6 @@ class Header extends React.Component {
               <span className="sr-only">(current)</span>
             </span>
           </a>
-          <button
-            onClick={() => {
-              this.showTargetElementLC();
-              this.hideTargetElementLC();
-            }}
-            id="secondaryNav"
-            className="mobile-sign-in navbar-toggler"
-            data-test="mobileNavTogglerBottom"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContentBottom"
-            aria-controls="navbarSupportedContentBottom"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon">
-              <div
-                id="icon-wrap-two"
-                className="icon-bar"
-                aria-expanded="false"
-              >
-                <span />
-                <span />
-                <span />
-                <span />
-              </div>
-            </span>
-          </button>
           <div
             className="form-inline my-2 my-lg-0 ml-auto navbar-nav"
             style={{ transform: "translateY(20%)" }}
