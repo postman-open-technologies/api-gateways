@@ -52,7 +52,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "source-yaml",
-        path: "./src/content/",
+        path: "./src/data/",
       },
       __key: "source-yaml",
     },

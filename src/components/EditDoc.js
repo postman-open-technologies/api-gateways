@@ -11,7 +11,7 @@ const EditDoc = ({ location = { pathname: "" }, className }) => {
     parts.length === 1
       ? `/src/pages/${parts[0]}/index.js`
       : parts.length > 1
-      ? `/src/content/${parts.join("/")}.yaml`
+      ? `/src/data/${parts.join("/")}.yaml`
       : "";
 
   const githubUrl = file.length > 0 ? `${repo}${branch}${file}` : repo;
