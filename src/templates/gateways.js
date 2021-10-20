@@ -24,11 +24,11 @@ const gatewayTemplate = ({ data, location }) => {
             <h4>Gateway Policies</h4>
             {properties.policies.map((policy) => {
               return (
-                <div>
+                <div key={policy.category}>
                   {policy.category}
                   <ul>
                     {policy.capabilities.map((capability) => {
-                      return <li>{capability}</li>;
+                      return <li key={capability}>{capability}</li>;
                     })}
                   </ul>
                 </div>
@@ -41,7 +41,12 @@ const gatewayTemplate = ({ data, location }) => {
               {links.map((item, index) => {
                 return (
                   <li key={`link_${index}`}>
-                    <Link to={item.href}>{item.title}</Link>
+                    {item.href.startsWith("http://") ||
+                    item.href.startsWith("https://") ? (
+                      <a href={item.href}>{item.title}</a>
+                    ) : (
+                      <Link to={item.href}>{item.title}</Link>
+                    )}
                   </li>
                 );
               })}
