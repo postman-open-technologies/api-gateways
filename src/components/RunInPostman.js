@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import runInPostman from "../helpers/runInPostman";
 
 import "./RunInPostman.scss";
