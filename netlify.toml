@@ -1,0 +1,13 @@
+[[redirects]]
+  from = "/"
+  to = "/gateways/"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Content-Type = "application/vnd.siren+json; charset=UTF-8"
+
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
