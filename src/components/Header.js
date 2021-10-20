@@ -132,6 +132,28 @@ class Header extends React.Component {
       $(this).find(".arrow-icon").removeClass("show");
     }
     $(".dropdown").on("hide.bs.dropdown", hideBsDropdown);
+    (function (p, o, s, t, m, a, n) {
+      !p[s] &&
+        (p[s] = function () {
+          (p[t] || (p[t] = [])).push(arguments);
+        });
+      !o.getElementById(s + t) &&
+        o
+          .getElementsByTagName("head")[0]
+          .appendChild(
+            ((n = o.createElement("script")),
+            (n.id = s + t),
+            (n.async = 1),
+            (n.src = m),
+            n)
+          );
+    })(
+      window,
+      document,
+      "_pm",
+      "PostmanRunObject",
+      "https://run.pstmn.io/button.js"
+    );
   }
 
   /*
@@ -248,13 +270,13 @@ class Header extends React.Component {
               <span className="sr-only">(current)</span>
             </span>
           </a>
-          <div
-            className="form-inline my-2 my-lg-0 ml-auto navbar-nav"
-            style={{ transform: "translateY(20%)" }}
-          >
-            <a href="https://god.gw.postman.com/run-collection/10354132-ab067c9b-4eb8-408f-8ade-708004bda02f?action=collection%2Ffork&collection-url=entityId%3D10354132-ab067c9b-4eb8-408f-8ade-708004bda02f%26entityType%3Dcollection%26workspaceId%3Df5c5ab05-0656-42a5-a11d-0403c02c9897">
-              <img src="https://run.pstmn.io/button.svg" alt="Run in Postman" />
-            </a>
+          <div className="form-inline my-2 my-lg-0 ml-auto navbar-nav">
+            <div
+              className="postman-run-button"
+              data-postman-action="collection/fork"
+              data-postman-var-1="10354132-ab067c9b-4eb8-408f-8ade-708004bda02f"
+              data-postman-collection-url="entityId=10354132-ab067c9b-4eb8-408f-8ade-708004bda02f&entityType=collection&workspaceId=f5c5ab05-0656-42a5-a11d-0403c02c9897"
+            ></div>
           </div>
           {/*}
           <div
