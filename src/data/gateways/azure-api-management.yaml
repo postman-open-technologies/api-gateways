@@ -1,0 +1,78 @@
+---
+class:
+  - gateway
+
+properties:
+  name: Azure API Management
+  provider: Microsoft Azure
+  license: Proprietary
+  researchDate: 2021-10
+  description: |
+    Azure API Management is a service provided by Microsoft Azure.
+    Its policies are fewer in number than some competitors, and yet 
+    it still suits many use cases.  Integrations are managed via 
+    [Dapr](https://dapr.io/).
+  platformCapabilities:
+    - API Gateway
+    - Threat Protection
+    - Monitoring
+    - Versioning
+    - Developer Portal
+  gatewayCapabilities:
+    - Mediation
+    - Mocking
+    - OpenAPI Integration
+    - Traffic Management
+    - Versioning
+  customCodeSupport: []
+  upstreamProtocols:
+    - HTTP/1.1
+    - HTTP/2
+  downstreamProtocols:
+    - HTTP/1.1
+    - HTTP/2
+  policies:
+    - category: Security
+      capabilities:
+        - IP Access Rules
+        - JWT Validation
+        - Mutual TLS
+        - Basic Authentication
+        - Managed Identity Authentication
+        - CORS
+    - category: Traffic Management
+      capabilities:
+        - Cache Lookup
+        - Cache Storage
+        - Cache Eviction
+        - Rate Limiting
+        - Quota
+    - category: Mediation
+      capabilities:
+        - Request Transformation
+        - Response Transformation
+        - JSON to XML
+        - XML to JSON
+        - URL Rewriting
+        - XSL Tranformations
+        - JSON Validation
+    - category: Extension
+      capabilities:
+        - JSONP
+        - Dapr integration
+  deliveryModels:
+    - SaaS
+    - Hybrid
+links:
+  - rel:
+      - urn:gateway:product
+    title: Product
+    href: https://azure.microsoft.com/en-us/services/api-management/
+  - rel:
+      - urn:gateway:docs
+    title: Documentation
+    href: https://docs.microsoft.com/en-us/azure/api-management/
+  - rel:
+      - urn:gateway:logo
+    title: Logo
+    href: /images/gateways/azure-api-management.jpg

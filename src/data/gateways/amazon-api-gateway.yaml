@@ -27,6 +27,7 @@ properties:
     - Traffic Management
     - OpenAPI Integration
     - Versioning
+    - Mocking
   customCodeSupport:
     - Lambda
   upstreamProtocols:

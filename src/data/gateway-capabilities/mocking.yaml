@@ -1,0 +1,5 @@
+---
+class:
+  - gateway-capabilities
+properties:
+  name: Mocking
