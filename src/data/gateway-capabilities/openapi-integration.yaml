@@ -1,0 +1,5 @@
+---
+class:
+  - gateway-capability
+properties:
+  name: OpenAPI Integration

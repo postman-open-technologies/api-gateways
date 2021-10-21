@@ -38,18 +38,20 @@ const gatewayTemplate = ({ data, location }) => {
           <div style={{ marginTop: "30px", marginBottom: "30px" }}>
             <h4>Links</h4>
             <ul>
-              {links.map((item, index) => {
-                return (
-                  <li key={`link_${index}`}>
-                    {item.href.startsWith("http://") ||
-                    item.href.startsWith("https://") ? (
-                      <a href={item.href}>{item.title}</a>
-                    ) : (
-                      <Link to={item.href}>{item.title}</Link>
-                    )}
-                  </li>
-                );
-              })}
+              {links
+                .filter((item) => !item.rel.includes("urn:gateway:logo"))
+                .map((item, index) => {
+                  return (
+                    <li key={`link_${index}`}>
+                      {item.href.startsWith("http://") ||
+                      item.href.startsWith("https://") ? (
+                        <a href={item.href}>{item.title}</a>
+                      ) : (
+                        <Link to={item.href}>{item.title}</Link>
+                      )}
+                    </li>
+                  );
+                })}
             </ul>
           </div>
         </div>

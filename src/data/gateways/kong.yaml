@@ -26,6 +26,7 @@ properties:
     - Protocol Transformation
     - Traffic Management
     - Mediation
+    - OpenAPI Integration
   customCodeSupport:
     - Lua
   upstreamProtocols:

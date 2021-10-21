@@ -1,0 +1,74 @@
+---
+class:
+  - gateway
+
+properties:
+  name: Amazon API Gateway
+  provider: Amazon Web Services
+  license: Proprietary
+  researchDate: 2021-10
+  description: |
+    AWS API Gateway.
+  platformCapabilities:
+    - API Gateway
+    - Developer Portal
+    - Monitoring
+    - Threat Protection
+    - Analytics
+    - Documentation
+    - SDK Generation
+  gatewayCapabilities:
+    - Custom Code Execution
+    - Mediation
+    - Traffic Management
+    - OpenAPI Integration
+    - Versioning
+  customCodeSupport:
+    - Lambda
+  upstreamProtocols:
+    - HTTP/1.1
+    - WebSocket
+  downstreamProtocols:
+    - HTTP/1.1
+    - WebSocket
+  deliveryModels:
+    - SaaS
+  policies:
+    - category: Security
+      capabilities:
+        - Lambda authorizers
+        - JWT authorizers
+        - AWS IAM roles and policies
+        - CORS
+        - Mutual TLS
+        - WAF
+    - category: Traffic Management
+      capabilities:
+        - Cache Lookup
+        - Cache Invalidation
+        - Throttling
+    - category: Mediation
+      capabilities:
+        - Request Transformation
+        - Response Transformation
+        - OpenAPI Validation
+    - category: Extensions
+      capabilities:
+        - AWS Lambda integrations
+        - HTTP integrations
+        - AWS service integrations
+        - Private integrations
+
+links:
+  - rel:
+      - urn:gateway:product
+    title: Product
+    href: https://aws.amazon.com/api-gateway/
+  - rel:
+      - urn:gateway:docs
+    title: Documentation
+    href: https://aws.amazon.com/api-gateway/resources/
+  - rel:
+      - urn:gateway:logo
+    title: Logo
+    href: /images/gateways/amazon-api-gateway.webp

@@ -29,12 +29,14 @@ properties:
     - Monitoring
     - Developer Portal
     - Threat Protection
+    - Documentation
   gatewayCapabilities:
     - Custom Code Execution
     - Protocol Transformation
     - Versioning
     - Traffic Management
     - Mediation
+    - OpenAPI Integration
   customCodeSupport:
     - Java
     - JavaScript

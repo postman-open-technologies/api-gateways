@@ -25,6 +25,7 @@ properties:
     - Versioning
     - Traffic Management
     - Mediation
+    - OpenAPI Integration
   customCodeSupport:
     - Java
     - JavaScript
