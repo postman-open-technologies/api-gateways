@@ -1,0 +1,41 @@
+---
+class:
+  - gateway
+
+properties:
+  name: Product
+  provider: Company
+  license: Proprietary
+  researchDate: 2021-10
+  description: |
+    Markdown description
+  platformCapabilities:
+    - Capability
+  gatewayCapabilities:
+    - Capability
+  customCodeSupport:
+    - JavaScript
+  upstreamProtocols:
+    - HTTP/1.1
+  downstreamProtocols:
+    - HTTP/1.1
+  deliveryModels:
+    - SaaS
+  policies:
+    - category: Category Name
+      capabilities:
+        - Policy Name
+
+links:
+  - rel:
+      - urn:gateway:product
+    title: Product
+    href: "[product url]"
+  - rel:
+      - urn:gateway:docs
+    title: Documentation
+    href: "[docs url]"
+  - rel:
+      - urn:gateway:logo
+    title: Logo
+    href: /images/gateways/[gateway].svg
