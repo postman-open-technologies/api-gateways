@@ -15,14 +15,12 @@ module.exports = {
     image: "/images/postman-horizontal-white-logo.svg",
   },
   plugins: [
-    "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "markdown-pages",
-        path: "./src/markdown-pages/",
+        name: "source-yaml",
+        path: "./src/data/",
       },
-      __key: "markdown-pages",
     },
     {
       resolve: "gatsby-transformer-yaml",
@@ -48,30 +46,6 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "source-yaml",
-        path: "./src/data/",
-      },
-      __key: "source-yaml",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "source-images",
-        path: "./src/images/",
-      },
-      __key: "source-images",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "source-templates",
-        path: "./src/templates/",
-      },
-      __key: "source-templates",
-    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     "gatsby-plugin-sri",
@@ -81,9 +55,6 @@ module.exports = {
         pathToConfigModule: "src/utils/typography",
       },
     },
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
