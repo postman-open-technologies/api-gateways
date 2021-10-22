@@ -25,7 +25,7 @@ const gatewayTemplate = ({ data, location }) => {
             {properties.policies.map((policy) => {
               return (
                 <div key={policy.category}>
-                  {policy.category}
+                  <h6>{policy.category}</h6>
                   <ul>
                     {policy.capabilities.map((capability) => {
                       return <li key={capability}>{capability}</li>;
