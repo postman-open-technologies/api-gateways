@@ -46,7 +46,7 @@ properties:
   deliveryModels:
     - SaaS
     - Customer Managed (Cloud)
-    - Customer Managed (On Premises)
+    - Customer Managed (On-Premises)
     - Hybrid
   policies:
     - category: Security
