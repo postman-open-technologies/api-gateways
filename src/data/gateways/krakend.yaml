@@ -1,0 +1,97 @@
+---
+class:
+  - gateway
+
+properties:
+  name: KrakenD
+  provider: KrakenD
+  license: Apache/2.0, Proprietary
+  researchDate: 2021-10
+  description: |
+    KrakenD offers two different editions, KrakenD CE (Community Edition) 
+    and KrakenD EE (Enteprise Edition).  The API Gateway engine of KrakenD, 
+    an open source project, has joined the Linux Foundation as [Lura](https://github.com/luraproject/lura).
+    KrakenD touts that it's built for performance.  This API Gateway is often 
+    deployed as a backend-for-frontend or a façade aggregator on top of many different
+    microservices.
+
+  platformCapabilities:
+    - API Gateway
+    - Monitoring
+    - Documentation
+    - Threat Protection
+    - Analytics
+  gatewayCapabilities:
+    - Custom Code Execution
+    - Mediation
+    - Traffic Management
+    - OpenAPI Integration
+    - Protocol Transformation
+  customCodeSupport:
+    - Go
+    - Lua
+    - Martian DSL
+  upstreamProtocols:
+    - HTTP/1.1
+    - HTTP/2
+    - gRPC
+    - WebSockets
+    - SOAP
+    - AWS Lambda
+  downstreamProtocols:
+    - HTTP/1.1
+    - HTTP/2
+    - gRPC
+    - AMQP
+  deliveryModels:
+    - SaaS
+    - Customer Managed (Cloud)
+    - Customer Managed (On Premises)
+    - Hybrid
+  policies:
+    - category: Security
+      capabilities:
+        - OAuth 2.0
+        - JWT
+        - Basic Authentication
+        - API Key Authentication
+        - Mutual TLS
+        - Bot Detector
+        - XSS Protection
+        - CORS
+
+    - category: Traffic Management
+      capabilities:
+        - Circuit Breaker
+        - Spike Arrest
+        - Rate Limiting
+        - Service Discovery
+        - Concurrent Rate Limiting
+    - category: Mediation
+      capabilities:
+        - Cache Lookup
+        - Cache Store
+        - Cache Eviction
+        - Request Transformation
+        - Response Transformation
+    - category: Extension
+      capabilities:
+        - Auth0 Integration
+        - Keycloak Integration
+        - Message Logging
+        - Lua Scripting
+        - Go Extensions
+
+links:
+  - rel:
+      - urn:gateway:product
+    title: Product
+    href: https://www.krakend.io
+  - rel:
+      - urn:gateway:docs
+    title: Documentation
+    href: https://www.krakend.io/docs/overview/introduction/
+  - rel:
+      - urn:gateway:logo
+    title: Logo
+    href: /images/gateways/krakend.svg

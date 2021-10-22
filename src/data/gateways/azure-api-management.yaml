@@ -16,7 +16,6 @@ properties:
     - API Gateway
     - Threat Protection
     - Monitoring
-    - Versioning
     - Developer Portal
   gatewayCapabilities:
     - Mediation
