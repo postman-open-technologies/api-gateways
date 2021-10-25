@@ -4,7 +4,7 @@ class:
 
 properties:
   name: Kong
-  provider:
+  provider: Kong
   license: Proprietary, Open Source (Apache-2.0)
   researchDate: 2021-10
   description: |
