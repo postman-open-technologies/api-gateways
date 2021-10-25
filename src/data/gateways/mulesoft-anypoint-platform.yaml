@@ -40,6 +40,7 @@ properties:
   policies:
     - category: Security
       capabilities:
+        - Client ID and Secret (MuleSoft-specific API security model)
         - Basic Authentication
         - LDAP Authentication
         - IP Access Rules
