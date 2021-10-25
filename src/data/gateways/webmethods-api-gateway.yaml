@@ -1,0 +1,83 @@
+---
+class:
+  - gateway
+
+properties:
+  name: webMethods.io API Gateway
+  provider: Software AG
+  license: Proprietary
+  researchDate: 2021-10
+  description: |
+    The webMethods.io API Gateway is part of a larger webMethods.io 
+    platform by Software AG.
+  platformCapabilities:
+    - API Gateway
+    - Developer Portal
+    - Threat Protection
+    - API Design
+    - Monetization
+    - Analytics
+  gatewayCapabilities:
+    - Mocking
+    - Traffic Management
+    - Mediation
+    - Versioning
+    - Protocol Transformation
+  customCodeSupport:
+    - AWS Lambda
+    - Node.js
+  upstreamProtocols:
+    - HTTP/1.1
+  downstreamProtocols:
+    - HTTP/1.1
+  deliveryModels:
+    - SaaS
+    - Hybrid
+    - Customer Managed (Cloud)
+    - Customer Managed (On-Premises)
+  policies:
+    - category: Security
+      capabilities:
+        - API Key
+        - OAuth 2.0
+        - SLA Management
+        - WSS Username
+        - Kerberos
+        - SAML
+        - Custom Credentials
+        - LDAP
+
+    - category: Mediation
+      capabilities:
+        - REST to SOAP
+        - Request Transformation
+        - Response Transformation
+        - XSL Transformation
+
+    - category: Traffic Management
+      capabilities:
+        - Content-Based Routing
+        - Load Balancer Routing
+        - Conditional Routing
+        - Traffic Optimization
+        - Dynamic Routing
+        - Rate Limiting
+
+    - category: Extension
+      capabilities:
+        - Monitoring
+        - Integration Server services
+
+links:
+  - rel:
+      - urn:gateway:product
+    title: Product
+    href: https://www.softwareag.cloud/site/product/webmethods-io-integration.html
+  - rel:
+      - urn:gateway:docs
+    title: Documentation
+    href: https://docs.webmethods.io/api/10.7.0/webmethods_api_cloud__api_gateway_user_s_guide/chapter1/
+  - rel:
+      - urn:gateway:logo
+    title: Logo
+    href: /images/gateways/webmethods-api-gateway.svg
