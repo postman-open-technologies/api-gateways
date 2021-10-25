@@ -4,10 +4,11 @@ import { Converter } from "showdown";
 import sanitizeHtml from "sanitize-html";
 import Layout from "../components/Layout";
 import GatewayTagCategories from "../components/GatewayTagCategories";
+import { naiveSlugify } from "../helpers/slugify";
 
 const gatewayTemplate = ({ data, location }) => {
   const { properties, links } = data.allYaml.edges[0].node;
-  const { name, description } = properties;
+  const { name, description, status } = properties;
 
   const converter = new Converter();
   const descriptionHtml = converter.makeHtml(description);
@@ -18,6 +19,20 @@ const gatewayTemplate = ({ data, location }) => {
       <h1>{name}</h1>
       <div className="collection__wrapper">
         <div className="container">
+          <div>
+            <Link
+              to={`/overview/research-status#${naiveSlugify(status)}`}
+              className="btn btn__small btn__secondary-light"
+              style={{
+                height: "auto",
+                border: "1px solid #a6a6a6",
+                borderRadius: "8px",
+                padding: "8px 16px",
+              }}
+            >
+              {status}
+            </Link>
+          </div>
           <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
           <GatewayTagCategories properties={properties} />
           <div style={{ marginTop: "30px", marginBottom: "30px" }}>
@@ -71,6 +86,7 @@ export const query = graphql`
             provider
             license
             researchDate
+            status
             description
             platformCapabilities
             downstreamProtocols

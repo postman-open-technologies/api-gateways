@@ -6,6 +6,7 @@ properties:
   name: Amazon API Gateway
   provider: Amazon Web Services
   license: Proprietary
+  status: Pending Review
   researchDate: 2021-10
   description: |
     Amazon is one of the first cloud providers to offer an API Gateway.  

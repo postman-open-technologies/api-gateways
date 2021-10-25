@@ -6,6 +6,7 @@ properties:
   name: Kong
   provider: Kong
   license: Proprietary, Open Source (Apache-2.0)
+  status: Pending Review
   researchDate: 2021-10
   description: |
     Kong is presented as both an open source API Gateway and as an enterprise

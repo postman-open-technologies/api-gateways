@@ -9,9 +9,16 @@ if (isDevelopment) {
 
 exports.createPages = ({ actions }) => {
   const { createRedirect } = actions;
-  createRedirect({
-    fromPath: "/",
-    toPath: "/gateways/",
-    redirectInBrowser: isDevelopment,
-  });
+  createRedirect(
+    {
+      fromPath: "/",
+      toPath: "/overview/introduction/",
+      redirectInBrowser: isDevelopment,
+    },
+    {
+      fromPath: "/overview/",
+      toPath: "/overview/introduction/",
+      redirectInBrowser: isDevelopment,
+    }
+  );
 };

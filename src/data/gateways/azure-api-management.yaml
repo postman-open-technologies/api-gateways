@@ -6,6 +6,7 @@ properties:
   name: Azure API Management
   provider: Microsoft Azure
   license: Proprietary
+  status: Pending Review
   researchDate: 2021-10
   description: |
     Azure API Management is a service provided by Microsoft Azure.

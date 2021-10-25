@@ -1,6 +1,10 @@
 [[redirects]]
   from = "/"
-  to = "/gateways/"
+  to = "/overview/introduction/"
+
+[[redirects]]
+  from = "/overview/"
+  to = "/overview/introduction/"
 
 [[headers]]
   for = "/api/*"

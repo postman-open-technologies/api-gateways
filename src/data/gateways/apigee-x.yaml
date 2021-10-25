@@ -6,6 +6,7 @@ properties:
   name: Apigee X
   provider: Google Cloud Platform
   license: Proprietary
+  status: Pending Review
   researchDate: 2021-10
   description: |
     The Apigee X platform is a newer release than the [Apigee Edge](../apigee-edge/)

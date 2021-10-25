@@ -6,6 +6,7 @@ properties:
   name: MuleSoft Anypoint Platform
   provider: MuleSoft
   license: Proprietary
+  status: Active Research
   researchDate: 2021-10
   description: |
     MuleSoft offers a broad suite of products to deliver

@@ -6,6 +6,7 @@ properties:
   name: webMethods.io API Gateway
   provider: Software AG
   license: Proprietary
+  status: Active Research
   researchDate: 2021-10
   description: |
     The webMethods.io API Gateway is part of a larger webMethods.io 

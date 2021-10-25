@@ -6,6 +6,7 @@ properties:
   name: Apigee Edge
   provider: Google Cloud Platform
   license: Proprietary
+  status: Pending Review
   researchDate: 2021-10
   description: |
     Apigee Edge is a first-generation, commercial gateway platform. 

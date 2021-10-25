@@ -6,6 +6,7 @@ properties:
   name: KrakenD
   provider: KrakenD
   license: Apache/2.0, Proprietary
+  status: Pending Review
   researchDate: 2021-10
   description: |
     KrakenD offers two different editions, KrakenD CE (Community Edition) 
