@@ -1,10 +1,12 @@
 [[redirects]]
   from = "/"
   to = "/overview/introduction/"
+  status = 302
 
 [[redirects]]
   from = "/overview/"
   to = "/overview/introduction/"
+  status = 302
 
 [[headers]]
   for = "/api/*"

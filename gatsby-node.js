@@ -13,11 +13,13 @@ exports.createPages = ({ actions }) => {
     {
       fromPath: "/",
       toPath: "/overview/introduction/",
+      statusCode: 302,
       redirectInBrowser: isDevelopment,
     },
     {
       fromPath: "/overview/",
       toPath: "/overview/introduction/",
+      statusCode: 302,
       redirectInBrowser: isDevelopment,
     }
   );
