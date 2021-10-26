@@ -7,15 +7,31 @@ import GatewayTagCategories from "../components/GatewayTagCategories";
 import { naiveSlugify } from "../helpers/slugify";
 
 const gatewayTemplate = ({ data, location }) => {
-  const { properties, links } = data.allYaml.edges[0].node;
-  const { name, description, status } = properties;
+  const { properties = {}, links = [] } = data.allYaml.edges[0].node;
+  const { name = "", description = "", status = "Planning" } = properties;
 
   const converter = new Converter();
   const descriptionHtml = converter.makeHtml(description);
   const sanitizedDescription = sanitizeHtml(descriptionHtml);
 
+  const customLinks = [
+    {
+      type: "subtitle",
+      name: "Additional Resources",
+    },
+    ...links
+      .filter((item) => !item.rel.includes("urn:gateway:logo") && item.title)
+      .map((item) => {
+        return {
+          type: "link",
+          name: item.title,
+          url: item.href,
+        };
+      }),
+  ];
+
   return (
-    <Layout location={location}>
+    <Layout location={location} customLinks={customLinks}>
       <h1>{name}</h1>
       <div className="collection__wrapper">
         <div className="container">
@@ -49,25 +65,6 @@ const gatewayTemplate = ({ data, location }) => {
                 </div>
               );
             })}
-          </div>
-          <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-            <h4>Links</h4>
-            <ul>
-              {links
-                .filter((item) => !item.rel.includes("urn:gateway:logo"))
-                .map((item, index) => {
-                  return (
-                    <li key={`link_${index}`}>
-                      {item.href.startsWith("http://") ||
-                      item.href.startsWith("https://") ? (
-                        <a href={item.href}>{item.title}</a>
-                      ) : (
-                        <Link to={item.href}>{item.title}</Link>
-                      )}
-                    </li>
-                  );
-                })}
-            </ul>
           </div>
         </div>
       </div>
