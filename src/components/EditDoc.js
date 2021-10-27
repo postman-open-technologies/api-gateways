@@ -5,12 +5,18 @@ const EditDoc = ({ location = { pathname: "" }, className }) => {
   const branch = `/blob/main`;
 
   const parts = location.pathname.split("/").filter((s) => s.length > 0);
-  const file =
-    parts.length === 1
-      ? `/src/pages/${parts[0]}/index.js`
-      : parts.length > 1
-      ? `/src/data/${parts.join("/")}.yaml`
-      : "";
+  // check for overview page and markdown link
+  let file = "";
+
+  if (parts.length === 1) {
+    file = `/src/pages/${parts[0]}/index.js}`;
+  } else if (parts.length > 1) {
+    if (parts[0] === "overview") {
+      file = `/src/content/${parts.join("/")}.md`;
+    } else {
+      file = `/src/data/${parts.join("/")}.yaml`;
+    }
+  }
 
   const githubUrl = file.length > 0 ? `${repo}${branch}${file}` : repo;
 
