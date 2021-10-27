@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import GatewayTagCategories from "./GatewayTagCategories";
+import AnchorHeading from "./AnchorHeading";
 
 const Gateway = ({ gateway }) => {
   const {
@@ -20,7 +21,9 @@ const Gateway = ({ gateway }) => {
     <div className="card" style={{ marginBottom: "20px", borderRadius: "8px" }}>
       <div className="card-body">
         <div className="row">
-          <h3 className="col-sm card-title">{properties.name}</h3>
+          <AnchorHeading level="3" className="col-sm card-title">
+            {properties.name}
+          </AnchorHeading>
           <div className="col-sm">
             <Link to={`/gateways/${parent.name}/`}>
               <img

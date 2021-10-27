@@ -5,6 +5,7 @@ import sanitizeHtml from "sanitize-html";
 import Layout from "../components/Layout";
 import GatewayTagCategories from "../components/GatewayTagCategories";
 import { naiveSlugify } from "../helpers/slugify";
+import AnchorHeading from "../components/AnchorHeading";
 
 const gatewayTemplate = ({ data, location }) => {
   const { properties = {}, links = [] } = data.allYaml.edges[0].node;
@@ -52,11 +53,11 @@ const gatewayTemplate = ({ data, location }) => {
           <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }} />
           <GatewayTagCategories properties={properties} />
           <div style={{ marginTop: "30px", marginBottom: "30px" }}>
-            <h4>Gateway Policies</h4>
+            <AnchorHeading level="4">Gateway Policies</AnchorHeading>
             {properties.policies.map((policy) => {
               return (
                 <div key={policy.category}>
-                  <h6>{policy.category}</h6>
+                  <AnchorHeading level="6">{policy.category}</AnchorHeading>
                   <ul>
                     {policy.capabilities.map((capability) => {
                       return <li key={capability}>{capability}</li>;

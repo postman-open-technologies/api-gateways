@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "gatsby";
 import { naiveSlugify } from "../helpers/slugify";
+import AnchorHeading from "./AnchorHeading";
 
-const TagCardText = ({ title, slugRoot, items }) => {
+const TagCardText = ({ id, title, slugRoot, items }) => {
   return (
     <div
       style={{ marginTop: "0px", marginBottom: "30px" }}
       className="card-text"
     >
-      <h4>{title}</h4>
+      <AnchorHeading level="4" id={id}>
+        {title}
+      </AnchorHeading>
       {items.map((item) => {
         return (
           <Link

@@ -23,6 +23,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "source-markdown",
+        path: "./src/content/",
+      },
+    },
+    {
       resolve: "gatsby-transformer-yaml",
       options: {
         typeName: "yaml",
@@ -46,6 +53,21 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-autolink-headers",
+            options: {
+              offsetY: 60,
+              elements: ["h2", "h3", "h4", "h5", "h6"],
+            },
+          },
+        ],
+      },
+    },
+    "gatsby-plugin-catch-links",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     "gatsby-plugin-sri",
