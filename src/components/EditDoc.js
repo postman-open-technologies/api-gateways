@@ -1,7 +1,7 @@
 import React from "react";
 
 const EditDoc = ({ location = { pathname: "" }, className }) => {
-  const repo = "https://github.com/kevinswiber/api-gateways";
+  const repo = "https://github.com/postman-open-technologies/api-gateways";
   const branch = `/blob/main`;
 
   const parts = location.pathname.split("/").filter((s) => s.length > 0);

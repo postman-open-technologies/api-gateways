@@ -1,6 +1,6 @@
 # Research Status
 
-API Gateway research can be fairly extensive. Each gateway entry is labeled with one of a few different research statuses to indicate its good-enough completeness and accuracy. We are open to suggestions and welcome Pull Requests to the [kevinswiber/api-gateways repository](https://github.com/kevinswiber/api-gateways) on GitHub.
+API Gateway research can be fairly extensive. Each gateway entry is labeled with one of a few different research statuses to indicate its good-enough completeness and accuracy. We are open to suggestions and welcome Pull Requests to the [postman-open-technologies/api-gateways repository](https://github.com/postman-open-technologies/api-gateways) on GitHub.
 
 ## Planning
 
