@@ -8,11 +8,10 @@ properties:
   license: Proprietary
   status: Active Research
   researchDate: 2021-10
-  description: |
-    MuleSoft offers a broad suite of products to deliver
-    integration solutions.  The Anypoint platform is often 
-    listed in the iPaaS category, and as part of that, it contains
-    API Gateway functionality.
+  description: >
+    MuleSoft offers a broad suite of products to deliver integration
+    solutions.  The Anypoint platform is often  listed in the iPaaS category,
+    and as part of that, it contains API Gateway functionality.
 
   platformCapabilities:
     - API Gateway

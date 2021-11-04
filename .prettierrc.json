@@ -1,0 +1,10 @@
+{
+  "overrides": [
+    {
+      "files": ["*.md", "*.mdx", "*.yml", "*.yaml"],
+      "options": {
+        "proseWrap": "always"
+      }
+    }
+  ]
+}

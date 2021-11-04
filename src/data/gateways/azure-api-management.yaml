@@ -8,11 +8,10 @@ properties:
   license: Proprietary
   status: Pending Review
   researchDate: 2021-10
-  description: |
-    Azure API Management is a service provided by Microsoft Azure.
-    Its policies are fewer in number than some competitors, and yet 
-    it still suits many use cases.  Integrations are managed via 
-    [Dapr](https://dapr.io/).
+  description: >
+    Azure API Management is a service provided by Microsoft Azure. Its policies
+    are fewer in number than some competitors, and yet  it still suits many use
+    cases.  Integrations are managed via  [Dapr](https://dapr.io/).
   platformCapabilities:
     - API Gateway
     - Threat Protection

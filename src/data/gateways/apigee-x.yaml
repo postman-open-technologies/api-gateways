@@ -8,10 +8,10 @@ properties:
   license: Proprietary
   status: Pending Review
   researchDate: 2021-10
-  description: |
-    The Apigee X platform is a newer release than the [Apigee Edge](../apigee-edge/)
-    platform.  It is a SaaS-only delivery with a few different policy options than
-    what's provided by Apigee Edge.
+  description: >
+    The Apigee X platform is a newer release than the [Apigee
+    Edge](../apigee-edge/) platform.  It is a SaaS-only delivery with a few
+    different policy options than what's provided by Apigee Edge.
   platformCapabilities:
     - API Design
     - API Gateway

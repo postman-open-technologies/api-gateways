@@ -8,10 +8,11 @@ properties:
   license: Proprietary, Open Source (Apache-2.0)
   status: Pending Review
   researchDate: 2021-10
-  description: |
+  description: >
     Kong is presented as both an open source API Gateway and as an enterprise
-    platform named Kong Konnect.  The platform consists of an API Gateway, 
-    a Service Mesh, a Developer Portal, an API client, and more.
+    platform named Kong Konnect.  The platform consists of an API Gateway,  a
+    Service Mesh, a Developer Portal, an API client, and more.
+
 
     Kong has gained a strong footing for internal use cases, leading to its
     integrations with Kubernetes and Envoy.

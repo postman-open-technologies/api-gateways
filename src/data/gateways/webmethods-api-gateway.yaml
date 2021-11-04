@@ -8,9 +8,9 @@ properties:
   license: Proprietary
   status: Active Research
   researchDate: 2021-10
-  description: |
-    The webMethods.io API Gateway is part of a larger webMethods.io 
-    platform by Software AG.
+  description: >
+    The webMethods.io API Gateway is part of a larger webMethods.io  platform by
+    Software AG.
   platformCapabilities:
     - API Gateway
     - Developer Portal

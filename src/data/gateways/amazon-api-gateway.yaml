@@ -8,12 +8,13 @@ properties:
   license: Proprietary
   status: Pending Review
   researchDate: 2021-10
-  description: |
+  description: >
     Amazon is one of the first cloud providers to offer an API Gateway.  
     The gateway supports a few different options: HTTP, REST, and WebSockets.  
-    Integrations with other AWS services are abundant.  Amazon API Gateway 
-    includes a set of [OpenAPI extensions](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html) 
-    to make integration more seamless.
+    Integrations with other AWS services are abundant.  Amazon API Gateway
+    includes a set of [OpenAPI
+    extensions](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions.html)
+     to make integration more seamless.
   platformCapabilities:
     - API Gateway
     - Developer Portal
