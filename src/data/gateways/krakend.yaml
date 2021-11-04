@@ -8,13 +8,30 @@ properties:
   license: Apache/2.0, Proprietary
   status: Pending Review
   researchDate: 2021-10
-  description: |
-    KrakenD offers two different editions, KrakenD CE (Community Edition) 
-    and KrakenD EE (Enteprise Edition).  The API Gateway engine of KrakenD, 
-    an open source project, has joined the Linux Foundation as [Lura](https://github.com/luraproject/lura).
-    KrakenD touts that it's built for performance.  This API Gateway is often 
-    deployed as a backend-for-frontend or a façade aggregator on top of many different
+  description: >
+    KrakenD offers two different editions, KrakenD CE (Community Edition)  and
+    KrakenD EE (Enteprise Edition).  The API Gateway engine of KrakenD,  an open
+    source project, has joined the Linux Foundation as
+    [Lura](https://github.com/luraproject/lura). KrakenD touts that it's built
+    for performance.  This API Gateway is often deployed as a
+    backend-for-frontend or a façade aggregator on top of many different
     microservices.
+
+
+    KrakenD is primarily used as a stateless component in user
+    infrastructure.  There's no data store dependency required for most
+    operations, which may simplify deployment and management.
+
+
+    Message transformation can be configured using the [Martian
+    DSL](https://github.com/google/martian) while message validation can benefit
+    from Google's [Common Expression Language
+    (CEL)](https://github.com/google/cel-spec).
+
+
+    KrakenD has a JSON-based file configuration with a Web-based editor in
+    KrakenD Designer (CE) or KrakenD Studio (EE). Enterprise features include
+    commercial support, KrakenD studio, and enterprise plugins.
 
   platformCapabilities:
     - API Gateway
