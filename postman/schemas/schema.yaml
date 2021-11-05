@@ -1,0 +1,1732 @@
+---
+openapi: 3.0.3
+info:
+  title: API Gateways
+  description:
+    "[![Run in
+    Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/10354132-ab067c9b-4eb8-408f-8ade-708004bda02f?action=collection%2Ffork&collection-url=entityId%3D10354132-ab067c9b-4eb8-408f-8ade-708004bda02f%26entityType%3Dcollection%26workspaceId%3Df5c5ab05-0656-42a5-a11d-0403c02c9897)\n\nAPI
+    Gateways\n============\n\nResearch collected for the most popular API
+    Gateways.\n\nOverview\n--------\n\nThe first wave of API Gateways,
+    historically, were offered as a component within larger API Management
+    platforms. As the industry evolved, a new wave of API Gateways were
+    introduced to provide solutions to a changing landscape. Some of these
+    gateway providers are now supplementing their standalone offering with
+    additional tools, often centered around a management approach more conducive
+    to internal API lifecycles.\n\nPresented here is a comprehensive, yet not
+    entirely exhaustive, list of popular API Gateways in use today. A few areas
+    of research have been highlighted:\n\n*   Platform Capabilities\n*   Gateway
+    Capabilities\n*   Delivery Models\n\nWhy use an API
+    Gateway?\n-----------------------\n\nAPI Gateways are often a means of
+    centralizing control between API Producers and Consumers. This can take a
+    few different shapes:\n\n*   Creating a façade pattern to present a RESTful
+    API in front of legacy services.\n*   Enforcing authentication and
+    authorization.\n*   Rate limiting traffic.\n*   Routing to static or dynamic
+    targets (e.g., phased rollouts, canary deployments).\n\nReal-world API
+    Gateway deployments\n----------------------------------\n\nWhile many API
+    Gateways are looking to cover both the external and internal use cases
+    associated with APIs, it's often common these days to see multiple gateways
+    deployed inside a single environment.\n\nTypically, this may take the form
+    of a first-wave gateway platform such as Apigee Edge for external APIs and
+    more lightweight alternatives, such as{\" \"} Kong, for internal use
+    cases.\n\nThis multi-gateway reality is becoming a new normal for API
+    practitioners today."
+  version: 1.0.0
+  contact:
+    name: Kevin Swiber
+    email: kevin.swiber@postman.com
+    url: https://twitter.com/kevinswiber
+servers:
+  - url: "https://gateways.fyi/api"
+paths:
+  /delivery-models:
+    get:
+      tags:
+        - Delivery Models
+      summary: All Delivery Models
+      description: All Delivery Models
+      operationId: allDeliveryModels
+      responses:
+        "200":
+          description: All Delivery Models Success
+          content:
+            application/vnd.siren+json:
+              schema:
+                type: object
+                properties:
+                  class:
+                    type: array
+                    items:
+                      type: string
+                      example: delivery-models
+                    example:
+                      - delivery-models
+                  entities:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/DeliveryModel"
+                    example:
+                      - class:
+                          - delivery-model
+                        links:
+                          - href: /api/delivery-models/customer-managed-cloud
+                            rel:
+                              - self
+                        properties:
+                          name: Customer Managed (Cloud)
+                      - class:
+                          - delivery-model
+                        links:
+                          - href: /api/delivery-models/customer-managed-on-premises
+                            rel:
+                              - self
+                        properties:
+                          name: Customer Managed (On-Premises)
+                      - class:
+                          - delivery-model
+                        links:
+                          - href: /api/delivery-models/hybrid
+                            rel:
+                              - self
+                        properties:
+                          name: Hybrid
+                      - class:
+                          - delivery-model
+                        links:
+                          - href: /api/delivery-models/saas
+                            rel:
+                              - self
+                        properties:
+                          description:
+                            "Deployed in the provider's cloud environment."
+                          name: SaaS
+                  links:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        href:
+                          type: string
+                          example: /api/delivery-models/
+                        rel:
+                          type: array
+                          items:
+                            type: string
+                            example: self
+                          example:
+                            - self
+                    example:
+                      - href: /api/delivery-models/
+                        rel:
+                          - self
+              examples:
+                All Delivery Models Success:
+                  value:
+                    class:
+                      - delivery-models
+                    entities:
+                      - class:
+                          - delivery-model
+                        links:
+                          - href: /api/delivery-models/customer-managed-cloud
+                            rel:
+                              - self
+                        properties:
+                          name: Customer Managed (Cloud)
+                      - class:
+                          - delivery-model
+                        links:
+                          - href: /api/delivery-models/customer-managed-on-premises
+                            rel:
+                              - self
+                        properties:
+                          name: Customer Managed (On-Premises)
+                      - class:
+                          - delivery-model
+                        links:
+                          - href: /api/delivery-models/hybrid
+                            rel:
+                              - self
+                        properties:
+                          name: Hybrid
+                      - class:
+                          - delivery-model
+                        links:
+                          - href: /api/delivery-models/saas
+                            rel:
+                              - self
+                        properties:
+                          description:
+                            "Deployed in the provider's cloud environment."
+                          name: SaaS
+                    links:
+                      - href: /api/delivery-models/
+                        rel:
+                          - self
+  "/delivery-models/{modelId}":
+    get:
+      tags:
+        - Delivery Models
+      summary: Single Delivery Model
+      description: Single Delivery Model
+      operationId: singleDeliveryModel
+      responses:
+        "200":
+          description: Single Delivery Model Success
+          content:
+            application/vnd.siren+json:
+              schema:
+                $ref: "#/components/schemas/DeliveryModel"
+              examples:
+                Single Delivery Model Success:
+                  value:
+                    class:
+                      - delivery-model
+                    links:
+                      - href: /api/delivery-models/saas
+                        rel:
+                          - self
+                    properties:
+                      description:
+                        "Deployed in the provider's cloud environment."
+                      name: SaaS
+    parameters:
+      - name: modelId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: saas
+  /gateway-capabilities:
+    get:
+      tags:
+        - Gateway Capabilities
+      summary: All Gateway Capabilities
+      description: All Gateway Capabilities
+      operationId: allGatewayCapabilities
+      responses:
+        "200":
+          description: All Gateway Capabilities Success
+          content:
+            application/vnd.siren+json:
+              schema:
+                type: object
+                properties:
+                  class:
+                    type: array
+                    items:
+                      type: string
+                      example: gateway-capabilities
+                    example:
+                      - gateway-capabilities
+                  entities:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/GatewayCapability"
+                    example:
+                      - class:
+                          - gateway-capability
+                        links:
+                          - href: /api/gateway-capabilities/custom-code-execution
+                            rel:
+                              - self
+                        properties:
+                          name: Custom Code Execution
+                      - class:
+                          - gateway-capability
+                        links:
+                          - href: /api/gateway-capabilities/mediation
+                            rel:
+                              - self
+                        properties:
+                          name: Mediation
+                      - class:
+                          - gateway-capability
+                        links:
+                          - href: /api/gateway-capabilities/protocol-transformation
+                            rel:
+                              - self
+                        properties:
+                          name: Protocol Transformation
+                      - class:
+                          - gateway-capability
+                        links:
+                          - href: /api/gateway-capabilities/traffic-management
+                            rel:
+                              - self
+                        properties:
+                          name: Traffic Management
+                      - class:
+                          - gateway-capability
+                        links:
+                          - href: /api/gateway-capabilities/versioning
+                            rel:
+                              - self
+                        properties:
+                          name: Versioning
+                  links:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        href:
+                          type: string
+                          example: /api/gateway-capabilities/
+                        rel:
+                          type: array
+                          items:
+                            type: string
+                            example: self
+                          example:
+                            - self
+                    example:
+                      - href: /api/gateway-capabilities/
+                        rel:
+                          - self
+              examples:
+                All Gateway Capabilities Success:
+                  value:
+                    class:
+                      - gateway-capabilities
+                    entities:
+                      - class:
+                          - gateway-capability
+                        links:
+                          - href: /api/gateway-capabilities/custom-code-execution
+                            rel:
+                              - self
+                        properties:
+                          name: Custom Code Execution
+                      - class:
+                          - gateway-capability
+                        links:
+                          - href: /api/gateway-capabilities/mediation
+                            rel:
+                              - self
+                        properties:
+                          name: Mediation
+                      - class:
+                          - gateway-capability
+                        links:
+                          - href: /api/gateway-capabilities/protocol-transformation
+                            rel:
+                              - self
+                        properties:
+                          name: Protocol Transformation
+                      - class:
+                          - gateway-capability
+                        links:
+                          - href: /api/gateway-capabilities/traffic-management
+                            rel:
+                              - self
+                        properties:
+                          name: Traffic Management
+                      - class:
+                          - gateway-capability
+                        links:
+                          - href: /api/gateway-capabilities/versioning
+                            rel:
+                              - self
+                        properties:
+                          name: Versioning
+                    links:
+                      - href: /api/gateway-capabilities/
+                        rel:
+                          - self
+  "/gateway-capabilities/{capabilityId}":
+    get:
+      tags:
+        - Gateway Capabilities
+      summary: Single Gateway Capability
+      description: Single Gateway Capability
+      operationId: singleGatewayCapability
+      responses:
+        "200":
+          description: Single Gateway Capability Success
+          content:
+            application/vnd.siren+json:
+              schema:
+                $ref: "#/components/schemas/GatewayCapability"
+              examples:
+                Single Gateway Capability Success:
+                  value:
+                    class:
+                      - gateway-capability
+                    links:
+                      - href: /api/gateway-capabilities/custom-code-execution
+                        rel:
+                          - self
+                    properties:
+                      name: Custom Code Execution
+    parameters:
+      - name: capabilityId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: custom-code-execution
+  /gateways:
+    get:
+      tags:
+        - Gateways
+      summary: All Gateways
+      description: All Gateways
+      operationId: allGateways
+      responses:
+        "200":
+          description: All Gateways Success
+          content:
+            application/vnd.siren+json:
+              schema:
+                type: object
+                properties:
+                  class:
+                    type: array
+                    items:
+                      type: string
+                      example: gateways
+                    example:
+                      - gateways
+                  entities:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Gateway"
+                    example:
+                      - class:
+                          - gateway
+                        links:
+                          - href: "https://cloud.google.com/apigee"
+                            rel:
+                              - "urn:gateway:product"
+                            title: Product
+                          - href: "https://docs.apigee.com/api-platform/get-started/get-started"
+                            rel:
+                              - "urn:gateway:docs"
+                            title: Documentation
+                          - href: /images/gateways/apigee-edge.svg
+                            rel:
+                              - "urn:gateway:logo"
+                            title: Logo
+                          - href: "../apigee-x"
+                            rel:
+                              - "urn:gateway:related"
+                            title: Apigee X
+                          - href: /api/gateways/apigee-edge
+                            rel:
+                              - self
+                        properties:
+                          customCodeSupport:
+                            - Java
+                            - JavaScript
+                            - Node.js
+                            - Python
+                          deliveryModels:
+                            - SaaS
+                            - Customer Managed (Cloud)
+                            - Customer Managed (On-Premises)
+                            - Hybrid
+                          description:
+                            "Apigee Edge is a first-generation, commercial
+                            gateway platform. \nIt includes a fully-integrated
+                            API Provider experience along with API Consumer
+                            \nmanagement via a [Developer
+                            Portal](../../platform-capabilities/developer-portal/).  \n\nWhile
+                            Apigee Edge comes with a number of different
+                            delivery options, \nnewer SaaS deliveries seem to be
+                            getting pushed more towards \n[Apigee
+                            X](../apigee-x/).\n\nPolicies for Apigee Edge API
+                            Gateways are configured with XML and can be
+                            \naccessed via a UI, CLI, and API.\n\nApigee Edge
+                            has a few different gateway offerings, including
+                            both a microgateway \nhybrid approach.\n"
+                          downstreamProtocols:
+                            - HTTP/1.1
+                          gatewayCapabilities:
+                            - Custom Code Execution
+                            - Protocol Transformation
+                            - Versioning
+                            - Traffic Management
+                            - Mediation
+                          license: Proprietary
+                          name: Apigee Edge
+                          platformCapabilities:
+                            - API Design
+                            - API Gateway
+                            - Analytics
+                            - Monetization
+                            - Monitoring
+                            - Developer Portal
+                            - Threat Protection
+                          policies:
+                            - capabilities:
+                                - Cache Lookup
+                                - Cache Invalidation
+                                - Cache Population
+                                - Cache Target Response
+                                - Concurrent Rate Limit
+                                - Quota
+                                - Quota Reset
+                                - Spike Arrest
+                              category: Traffic Management
+                            - capabilities:
+                                - Platform Data Lookup
+                                - Request Transformation
+                                - Response Transformation
+                                - Context Persistence
+                                - Custom Data Storage
+                                - JSON to XML
+                                - XML to JSON
+                                - SOAP Validation
+                                - OpenAPI Validation
+                                - Custom Exception Handling
+                                - XSL Tranformations
+                              category: Mediation
+                            - capabilities:
+                                - IP Access Rules
+                                - Basic Authentication
+                                - API Key
+                                - OAuth 2.0
+                                - OAuth 1.0
+                                - HMAC
+                                - JSON Threat Protection
+                                - XML Threat Protection
+                                - JWS
+                                - JWT
+                                - LDAP
+                                - Message Inspection
+                                - SAML Assertion
+                              category: Security
+                            - capabilities:
+                                - Platform Integration
+                                - Java
+                                - JavaScript
+                                - Python
+                                - Message Logging
+                                - HTTP Callout
+                                - Statistics Collection
+                              category: Extension
+                          provider: Google Cloud Platform
+                          researchDate: 2021-10
+                          upstreamProtocols:
+                            - HTTP/1.1
+                      - class:
+                          - gateway
+                        links:
+                          - href: "https://cloud.google.com/apigee"
+                            rel:
+                              - "urn:gateway:product"
+                            title: Product
+                          - href: "https://docs.apigee.com/api-platform/get-started/get-started"
+                            rel:
+                              - "urn:gateway:docs"
+                            title: Documentation
+                          - href: /images/gateways/apigee-x.svg
+                            rel:
+                              - "urn:gateway:logo"
+                            title: Logo
+                          - href: "../apigee-edge"
+                            rel:
+                              - "urn:gateway:related"
+                            title: Apigee Edge
+                          - href: /api/gateways/apigee-x
+                            rel:
+                              - self
+                        properties:
+                          customCodeSupport:
+                            - Java
+                            - JavaScript
+                            - Node.js
+                            - Python
+                          deliveryModels:
+                            - SaaS
+                          description:
+                            "The Apigee X platform is a newer release than the
+                            [Apigee Edge](../apigee-edge/)\nplatform.  It is a
+                            SaaS-only delivery with a few different policy
+                            options than\nwhat's provided by Apigee Edge.\n"
+                          downstreamProtocols:
+                            - HTTP/1.1
+                            - gRPC
+                            - GraphQL
+                          gatewayCapabilities:
+                            - Custom Code Execution
+                            - Protocol Transformation
+                            - Versioning
+                            - Traffic Management
+                            - Mediation
+                          license: Proprietary
+                          name: Apigee X
+                          platformCapabilities:
+                            - API Design
+                            - API Gateway
+                            - Analytics
+                            - Monetization
+                            - Monitoring
+                            - Developer Portal
+                            - Threat Protection
+                          policies:
+                            - capabilities:
+                                - Cache Lookup
+                                - Cache Invalidation
+                                - Cache Population
+                                - Cache Target Response
+                                - Quota
+                                - Quota Reset
+                                - Spike Arrest
+                              category: Traffic Management
+                            - capabilities:
+                                - Platform Data Lookup
+                                - Request Transformation
+                                - Response Transformation
+                                - CORS
+                                - Context Persistence
+                                - GraphQL
+                                - Custom Data Storage
+                                - JSON to XML
+                                - XML to JSON
+                                - SOAP Validation
+                                - OpenAPI Validation
+                                - Custom Exception Handling
+                                - XSL Tranformations
+                                - Monetization Limits
+                              category: Mediation
+                            - capabilities:
+                                - IP Access Rules
+                                - Basic Authentication
+                                - API Key
+                                - OAuth 2.0
+                                - OAuth 1.0
+                                - HMAC
+                                - JSON Threat Protection
+                                - XML Threat Protection
+                                - JWS
+                                - JWT
+                                - Message Inspection
+                                - SAML Assertion
+                              category: Security
+                            - capabilities:
+                                - Data Collection
+                                - HTTP Callout
+                                - gRPC Callout
+                                - Java
+                                - JavaScript
+                                - Python
+                                - Message Logging
+                                - Statistics Collection
+                              category: Extension
+                          provider: Google Cloud Platform
+                          researchDate: 2021-10
+                          upstreamProtocols:
+                            - HTTP/1.1
+                            - GraphQL
+                      - class:
+                          - gateway
+                        links:
+                          - href: "https://konghq.com/"
+                            rel:
+                              - "urn:gateway:product"
+                            title: Product
+                          - href: "https://docs.konghq.com/"
+                            rel:
+                              - "urn:gateway:docs"
+                            title: Documentation
+                          - href: /images/gateways/kong.svg
+                            rel:
+                              - "urn:gateway:logo"
+                            title: Logo
+                          - href: /api/gateways/kong
+                            rel:
+                              - self
+                        properties:
+                          customCodeSupport:
+                            - Lua
+                          deliveryModels:
+                            - SaaS
+                            - Customer Managed (Cloud)
+                            - Customer Managed (On-Premises)
+                          description:
+                            "Kong is presented as both an open source API
+                            Gateway and as an enterprise\nplatform named Kong
+                            Konnect.  The platform consists of an API Gateway,
+                            \na Service Mesh, a Developer Portal, an API client,
+                            and more.\n\nKong has gained a strong footing for
+                            internal use cases, leading to its\nintegrations
+                            with Kubernetes and Envoy.\n"
+                          downstreamProtocols:
+                            - HTTP/1.1
+                            - HTTP/2
+                            - GraphQL
+                          gatewayCapabilities:
+                            - Custom Code Execution
+                            - Protocol Transformation
+                            - Traffic Management
+                            - Mediation
+                          license: "Proprietary, Open Source (Apache-2.0)"
+                          name: Kong
+                          platformCapabilities:
+                            - API Design
+                            - API Gateway
+                            - Analytics
+                            - Monitoring
+                            - Developer Portal
+                            - Threat Protection
+                          policies:
+                            - capabilities:
+                                - Canary Release
+                                - GraphQL Caching
+                                - Rate Limiting
+                                - Mocking
+                                - Cache Lookup
+                                - Cache Invalidation
+                                - Cache Population
+                                - Cache Target Response
+                                - Quota
+                                - Request Size Limiting
+                              category: Traffic Management
+                            - capabilities:
+                                - GraphQL to REST
+                                - Request Transformation
+                                - Response Transformation
+                                - Context Persistence
+                                - JSON to XML
+                              category: Mediation
+                            - capabilities:
+                                - IP Access Rules
+                                - Basic Authentication
+                                - API Key
+                                - OAuth 2.0
+                                - HMAC
+                                - JWT
+                                - LDAP
+                                - Message Inspection
+                                - SAML Assertion
+                                - Mutual TLS
+                                - OpenID Connect
+                                - HashiCorp Vault Authentication
+                                - Okta
+                                - "Let's Encrypt"
+                                - Bot Detection
+                                - CORS
+                                - Access Control Lists
+                              category: Security
+                            - capabilities:
+                                - Serverless Integrations
+                                - Monitoring Integrations
+                                - Statistics Collection
+                                - Message Logging
+                              category: Extension
+                          provider: ~
+                          researchDate: 2021-10
+                          upstreamProtocols:
+                            - HTTP/1.1
+                            - HTTP/2
+                            - gRPC
+                            - GraphQL
+                            - Kafka
+                  links:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        href:
+                          type: string
+                          example: /api/gateways/
+                        rel:
+                          type: array
+                          items:
+                            type: string
+                            example: self
+                          example:
+                            - self
+                    example:
+                      - href: /api/gateways/
+                        rel:
+                          - self
+              examples:
+                All Gateways Success:
+                  value:
+                    class:
+                      - gateways
+                    entities:
+                      - class:
+                          - gateway
+                        links:
+                          - href: "https://cloud.google.com/apigee"
+                            rel:
+                              - "urn:gateway:product"
+                            title: Product
+                          - href: "https://docs.apigee.com/api-platform/get-started/get-started"
+                            rel:
+                              - "urn:gateway:docs"
+                            title: Documentation
+                          - href: /images/gateways/apigee-edge.svg
+                            rel:
+                              - "urn:gateway:logo"
+                            title: Logo
+                          - href: "../apigee-x"
+                            rel:
+                              - "urn:gateway:related"
+                            title: Apigee X
+                          - href: /api/gateways/apigee-edge
+                            rel:
+                              - self
+                        properties:
+                          customCodeSupport:
+                            - Java
+                            - JavaScript
+                            - Node.js
+                            - Python
+                          deliveryModels:
+                            - SaaS
+                            - Customer Managed (Cloud)
+                            - Customer Managed (On-Premises)
+                            - Hybrid
+                          description:
+                            "Apigee Edge is a first-generation, commercial
+                            gateway platform. \nIt includes a fully-integrated
+                            API Provider experience along with API Consumer
+                            \nmanagement via a [Developer
+                            Portal](../../platform-capabilities/developer-portal/).  \n\nWhile
+                            Apigee Edge comes with a number of different
+                            delivery options, \nnewer SaaS deliveries seem to be
+                            getting pushed more towards \n[Apigee
+                            X](../apigee-x/).\n\nPolicies for Apigee Edge API
+                            Gateways are configured with XML and can be
+                            \naccessed via a UI, CLI, and API.\n\nApigee Edge
+                            has a few different gateway offerings, including
+                            both a microgateway \nhybrid approach.\n"
+                          downstreamProtocols:
+                            - HTTP/1.1
+                          gatewayCapabilities:
+                            - Custom Code Execution
+                            - Protocol Transformation
+                            - Versioning
+                            - Traffic Management
+                            - Mediation
+                          license: Proprietary
+                          name: Apigee Edge
+                          platformCapabilities:
+                            - API Design
+                            - API Gateway
+                            - Analytics
+                            - Monetization
+                            - Monitoring
+                            - Developer Portal
+                            - Threat Protection
+                          policies:
+                            - capabilities:
+                                - Cache Lookup
+                                - Cache Invalidation
+                                - Cache Population
+                                - Cache Target Response
+                                - Concurrent Rate Limit
+                                - Quota
+                                - Quota Reset
+                                - Spike Arrest
+                              category: Traffic Management
+                            - capabilities:
+                                - Platform Data Lookup
+                                - Request Transformation
+                                - Response Transformation
+                                - Context Persistence
+                                - Custom Data Storage
+                                - JSON to XML
+                                - XML to JSON
+                                - SOAP Validation
+                                - OpenAPI Validation
+                                - Custom Exception Handling
+                                - XSL Tranformations
+                              category: Mediation
+                            - capabilities:
+                                - IP Access Rules
+                                - Basic Authentication
+                                - API Key
+                                - OAuth 2.0
+                                - OAuth 1.0
+                                - HMAC
+                                - JSON Threat Protection
+                                - XML Threat Protection
+                                - JWS
+                                - JWT
+                                - LDAP
+                                - Message Inspection
+                                - SAML Assertion
+                              category: Security
+                            - capabilities:
+                                - Platform Integration
+                                - Java
+                                - JavaScript
+                                - Python
+                                - Message Logging
+                                - HTTP Callout
+                                - Statistics Collection
+                              category: Extension
+                          provider: Google Cloud Platform
+                          researchDate: 2021-10
+                          upstreamProtocols:
+                            - HTTP/1.1
+                      - class:
+                          - gateway
+                        links:
+                          - href: "https://cloud.google.com/apigee"
+                            rel:
+                              - "urn:gateway:product"
+                            title: Product
+                          - href: "https://docs.apigee.com/api-platform/get-started/get-started"
+                            rel:
+                              - "urn:gateway:docs"
+                            title: Documentation
+                          - href: /images/gateways/apigee-x.svg
+                            rel:
+                              - "urn:gateway:logo"
+                            title: Logo
+                          - href: "../apigee-edge"
+                            rel:
+                              - "urn:gateway:related"
+                            title: Apigee Edge
+                          - href: /api/gateways/apigee-x
+                            rel:
+                              - self
+                        properties:
+                          customCodeSupport:
+                            - Java
+                            - JavaScript
+                            - Node.js
+                            - Python
+                          deliveryModels:
+                            - SaaS
+                          description:
+                            "The Apigee X platform is a newer release than the
+                            [Apigee Edge](../apigee-edge/)\nplatform.  It is a
+                            SaaS-only delivery with a few different policy
+                            options than\nwhat's provided by Apigee Edge.\n"
+                          downstreamProtocols:
+                            - HTTP/1.1
+                            - gRPC
+                            - GraphQL
+                          gatewayCapabilities:
+                            - Custom Code Execution
+                            - Protocol Transformation
+                            - Versioning
+                            - Traffic Management
+                            - Mediation
+                          license: Proprietary
+                          name: Apigee X
+                          platformCapabilities:
+                            - API Design
+                            - API Gateway
+                            - Analytics
+                            - Monetization
+                            - Monitoring
+                            - Developer Portal
+                            - Threat Protection
+                          policies:
+                            - capabilities:
+                                - Cache Lookup
+                                - Cache Invalidation
+                                - Cache Population
+                                - Cache Target Response
+                                - Quota
+                                - Quota Reset
+                                - Spike Arrest
+                              category: Traffic Management
+                            - capabilities:
+                                - Platform Data Lookup
+                                - Request Transformation
+                                - Response Transformation
+                                - CORS
+                                - Context Persistence
+                                - GraphQL
+                                - Custom Data Storage
+                                - JSON to XML
+                                - XML to JSON
+                                - SOAP Validation
+                                - OpenAPI Validation
+                                - Custom Exception Handling
+                                - XSL Tranformations
+                                - Monetization Limits
+                              category: Mediation
+                            - capabilities:
+                                - IP Access Rules
+                                - Basic Authentication
+                                - API Key
+                                - OAuth 2.0
+                                - OAuth 1.0
+                                - HMAC
+                                - JSON Threat Protection
+                                - XML Threat Protection
+                                - JWS
+                                - JWT
+                                - Message Inspection
+                                - SAML Assertion
+                              category: Security
+                            - capabilities:
+                                - Data Collection
+                                - HTTP Callout
+                                - gRPC Callout
+                                - Java
+                                - JavaScript
+                                - Python
+                                - Message Logging
+                                - Statistics Collection
+                              category: Extension
+                          provider: Google Cloud Platform
+                          researchDate: 2021-10
+                          upstreamProtocols:
+                            - HTTP/1.1
+                            - GraphQL
+                      - class:
+                          - gateway
+                        links:
+                          - href: "https://konghq.com/"
+                            rel:
+                              - "urn:gateway:product"
+                            title: Product
+                          - href: "https://docs.konghq.com/"
+                            rel:
+                              - "urn:gateway:docs"
+                            title: Documentation
+                          - href: /images/gateways/kong.svg
+                            rel:
+                              - "urn:gateway:logo"
+                            title: Logo
+                          - href: /api/gateways/kong
+                            rel:
+                              - self
+                        properties:
+                          customCodeSupport:
+                            - Lua
+                          deliveryModels:
+                            - SaaS
+                            - Customer Managed (Cloud)
+                            - Customer Managed (On-Premises)
+                          description:
+                            "Kong is presented as both an open source API
+                            Gateway and as an enterprise\nplatform named Kong
+                            Konnect.  The platform consists of an API Gateway,
+                            \na Service Mesh, a Developer Portal, an API client,
+                            and more.\n\nKong has gained a strong footing for
+                            internal use cases, leading to its\nintegrations
+                            with Kubernetes and Envoy.\n"
+                          downstreamProtocols:
+                            - HTTP/1.1
+                            - HTTP/2
+                            - GraphQL
+                          gatewayCapabilities:
+                            - Custom Code Execution
+                            - Protocol Transformation
+                            - Traffic Management
+                            - Mediation
+                          license: "Proprietary, Open Source (Apache-2.0)"
+                          name: Kong
+                          platformCapabilities:
+                            - API Design
+                            - API Gateway
+                            - Analytics
+                            - Monitoring
+                            - Developer Portal
+                            - Threat Protection
+                          policies:
+                            - capabilities:
+                                - Canary Release
+                                - GraphQL Caching
+                                - Rate Limiting
+                                - Mocking
+                                - Cache Lookup
+                                - Cache Invalidation
+                                - Cache Population
+                                - Cache Target Response
+                                - Quota
+                                - Request Size Limiting
+                              category: Traffic Management
+                            - capabilities:
+                                - GraphQL to REST
+                                - Request Transformation
+                                - Response Transformation
+                                - Context Persistence
+                                - JSON to XML
+                              category: Mediation
+                            - capabilities:
+                                - IP Access Rules
+                                - Basic Authentication
+                                - API Key
+                                - OAuth 2.0
+                                - HMAC
+                                - JWT
+                                - LDAP
+                                - Message Inspection
+                                - SAML Assertion
+                                - Mutual TLS
+                                - OpenID Connect
+                                - HashiCorp Vault Authentication
+                                - Okta
+                                - "Let's Encrypt"
+                                - Bot Detection
+                                - CORS
+                                - Access Control Lists
+                              category: Security
+                            - capabilities:
+                                - Serverless Integrations
+                                - Monitoring Integrations
+                                - Statistics Collection
+                                - Message Logging
+                              category: Extension
+                          provider: ~
+                          researchDate: 2021-10
+                          upstreamProtocols:
+                            - HTTP/1.1
+                            - HTTP/2
+                            - gRPC
+                            - GraphQL
+                            - Kafka
+                    links:
+                      - href: /api/gateways/
+                        rel:
+                          - self
+  "/gateways/{gatewayId}":
+    get:
+      tags:
+        - Gateways
+      summary: Single Gateway
+      description: Single Gateway
+      operationId: singleGateway
+      responses:
+        "200":
+          description: Single Gateway Success
+          content:
+            application/vnd.siren+json:
+              schema:
+                $ref: "#/components/schemas/Gateway"
+              examples:
+                Single Gateway Success:
+                  value:
+                    class:
+                      - gateway
+                    links:
+                      - href: "https://konghq.com/"
+                        rel:
+                          - "urn:gateway:product"
+                        title: Product
+                      - href: "https://docs.konghq.com/"
+                        rel:
+                          - "urn:gateway:docs"
+                        title: Documentation
+                      - href: /images/gateways/kong.svg
+                        rel:
+                          - "urn:gateway:logo"
+                        title: Logo
+                      - href: /api/gateways/kong
+                        rel:
+                          - self
+                    properties:
+                      customCodeSupport:
+                        - Lua
+                      deliveryModels:
+                        - SaaS
+                        - Customer Managed (Cloud)
+                        - Customer Managed (On-Premises)
+                      description:
+                        "Kong is presented as both an open source API Gateway
+                        and as an enterprise\nplatform named Kong Konnect.  The
+                        platform consists of an API Gateway, \na Service Mesh, a
+                        Developer Portal, an API client, and more.\n\nKong has
+                        gained a strong footing for internal use cases, leading
+                        to its\nintegrations with Kubernetes and Envoy.\n"
+                      downstreamProtocols:
+                        - HTTP/1.1
+                        - HTTP/2
+                        - GraphQL
+                      gatewayCapabilities:
+                        - Custom Code Execution
+                        - Protocol Transformation
+                        - Traffic Management
+                        - Mediation
+                        - OpenAPI Integration
+                      license: "Proprietary, Open Source (Apache-2.0)"
+                      name: Kong
+                      platformCapabilities:
+                        - API Design
+                        - API Gateway
+                        - Analytics
+                        - Monitoring
+                        - Developer Portal
+                        - Threat Protection
+                      policies:
+                        - capabilities:
+                            - Canary Release
+                            - GraphQL Caching
+                            - Rate Limiting
+                            - Mocking
+                            - Cache Lookup
+                            - Cache Invalidation
+                            - Cache Population
+                            - Cache Target Response
+                            - Quota
+                            - Request Size Limiting
+                          category: Traffic Management
+                        - capabilities:
+                            - GraphQL to REST
+                            - Request Transformation
+                            - Response Transformation
+                            - Context Persistence
+                            - JSON to XML
+                          category: Mediation
+                        - capabilities:
+                            - IP Access Rules
+                            - Basic Authentication
+                            - API Key
+                            - OAuth 2.0
+                            - HMAC
+                            - JWT
+                            - LDAP
+                            - Message Inspection
+                            - SAML Assertion
+                            - Mutual TLS
+                            - OpenID Connect
+                            - HashiCorp Vault Authentication
+                            - Okta
+                            - "Let's Encrypt"
+                            - Bot Detection
+                            - CORS
+                            - Access Control Lists
+                          category: Security
+                        - capabilities:
+                            - Serverless Integrations
+                            - Monitoring Integrations
+                            - Statistics Collection
+                            - Message Logging
+                          category: Extension
+                      provider: ~
+                      researchDate: 2021-10
+                      upstreamProtocols:
+                        - HTTP/1.1
+                        - HTTP/2
+                        - gRPC
+                        - GraphQL
+                        - Kafka
+    parameters:
+      - name: gatewayId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: kong
+  /platform-capabilities:
+    get:
+      tags:
+        - Platform Capabilities
+      summary: All Platform Capabilities
+      description: All Platform Capabilities
+      operationId: allPlatformCapabilities
+      responses:
+        "200":
+          description: All Platform Capabilities Success
+          content:
+            application/vnd.siren+json:
+              schema:
+                type: object
+                properties:
+                  class:
+                    type: array
+                    items:
+                      type: string
+                      example: platform-capabilities
+                    example:
+                      - platform-capabilities
+                  entities:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/PlatformCapability"
+                    example:
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/analytics
+                            rel:
+                              - self
+                        properties:
+                          name: Analytics
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/api-design
+                            rel:
+                              - self
+                        properties:
+                          name: API Design
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/api-gateway
+                            rel:
+                              - self
+                        properties:
+                          name: API Gateway
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/developer-portal
+                            rel:
+                              - self
+                        properties:
+                          name: Developer Portal
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/monetization
+                            rel:
+                              - self
+                        properties:
+                          name: Monetization
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/monitoring
+                            rel:
+                              - self
+                        properties:
+                          name: Monitoring
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/threat-protection
+                            rel:
+                              - self
+                        properties:
+                          name: Threat Protection
+                  links:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        href:
+                          type: string
+                          example: /api/platform-capabilities/
+                        rel:
+                          type: array
+                          items:
+                            type: string
+                            example: self
+                          example:
+                            - self
+                    example:
+                      - href: /api/platform-capabilities/
+                        rel:
+                          - self
+              examples:
+                All Platform Capabilities Success:
+                  value:
+                    class:
+                      - platform-capabilities
+                    entities:
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/analytics
+                            rel:
+                              - self
+                        properties:
+                          name: Analytics
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/api-design
+                            rel:
+                              - self
+                        properties:
+                          name: API Design
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/api-gateway
+                            rel:
+                              - self
+                        properties:
+                          name: API Gateway
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/developer-portal
+                            rel:
+                              - self
+                        properties:
+                          name: Developer Portal
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/monetization
+                            rel:
+                              - self
+                        properties:
+                          name: Monetization
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/monitoring
+                            rel:
+                              - self
+                        properties:
+                          name: Monitoring
+                      - class:
+                          - platform-capability
+                        links:
+                          - href: /api/platform-capabilities/threat-protection
+                            rel:
+                              - self
+                        properties:
+                          name: Threat Protection
+                    links:
+                      - href: /api/platform-capabilities/
+                        rel:
+                          - self
+  "/platform-capabilities/{capabilityId}":
+    get:
+      tags:
+        - Platform Capabilities
+      summary: Single Platform Capability
+      description: Single Platform Capability
+      operationId: singlePlatformCapability
+      responses:
+        "200":
+          description: Single Platform Capability Success
+          content:
+            application/vnd.siren+json:
+              schema:
+                $ref: "#/components/schemas/PlatformCapability"
+              examples:
+                Single Platform Capability Success:
+                  value:
+                    class:
+                      - platform-capability
+                    links:
+                      - href: /api/platform-capabilities/threat-protection
+                        rel:
+                          - self
+                    properties:
+                      name: Threat Protection
+    parameters:
+      - name: capabilityId
+        in: path
+        required: true
+        schema:
+          type: string
+          example: threat-protection
+tags:
+  - name: Gateways
+  - name: Platform Capabilities
+  - name: Gateway Capabilities
+  - name: Delivery Models
+components:
+  schemas:
+    DeliveryModel:
+      type: object
+      properties:
+        class:
+          type: array
+          items:
+            type: string
+            example: delivery-model
+          example:
+            - delivery-model
+        links:
+          type: array
+          items:
+            type: object
+            properties:
+              href:
+                type: string
+                example: /api/delivery-models/customer-managed-cloud
+              rel:
+                type: array
+                items:
+                  type: string
+                  example: self
+                example:
+                  - self
+          example:
+            - href: /api/delivery-models/customer-managed-cloud
+              rel:
+                - self
+        properties:
+          type: object
+          properties:
+            description:
+              type: string
+              example: "Deployed in the provider's cloud environment."
+            name:
+              type: string
+              example: Customer Managed (Cloud)
+    GatewayCapability:
+      type: object
+      properties:
+        class:
+          type: array
+          items:
+            type: string
+            example: gateway-capability
+          example:
+            - gateway-capability
+        links:
+          type: array
+          items:
+            type: object
+            properties:
+              href:
+                type: string
+                example: /api/gateway-capabilities/custom-code-execution
+              rel:
+                type: array
+                items:
+                  type: string
+                  example: self
+                example:
+                  - self
+          example:
+            - href: /api/gateway-capabilities/custom-code-execution
+              rel:
+                - self
+        properties:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Custom Code Execution
+    Gateway:
+      type: object
+      properties:
+        class:
+          type: array
+          items:
+            type: string
+            example: gateway
+          example:
+            - gateway
+        links:
+          type: array
+          items:
+            type: object
+            properties:
+              href:
+                type: string
+                example: "https://cloud.google.com/apigee"
+              rel:
+                type: array
+                items:
+                  type: string
+                  example: "urn:gateway:product"
+                example:
+                  - "urn:gateway:product"
+              title:
+                type: string
+                example: Product
+          example:
+            - href: "https://cloud.google.com/apigee"
+              rel:
+                - "urn:gateway:product"
+              title: Product
+            - href: "https://docs.apigee.com/api-platform/get-started/get-started"
+              rel:
+                - "urn:gateway:docs"
+              title: Documentation
+            - href: /images/gateways/apigee-edge.svg
+              rel:
+                - "urn:gateway:logo"
+              title: Logo
+            - href: "../apigee-x"
+              rel:
+                - "urn:gateway:related"
+              title: Apigee X
+            - href: /api/gateways/apigee-edge
+              rel:
+                - self
+        properties:
+          type: object
+          properties:
+            customCodeSupport:
+              type: array
+              items:
+                type: string
+                example: Java
+              example:
+                - Java
+                - JavaScript
+                - Node.js
+                - Python
+            deliveryModels:
+              type: array
+              items:
+                type: string
+                example: SaaS
+              example:
+                - SaaS
+                - Customer Managed (Cloud)
+                - Customer Managed (On-Premises)
+                - Hybrid
+            description:
+              type: string
+              example:
+                "Apigee Edge is a first-generation, commercial gateway platform.
+                \nIt includes a fully-integrated API Provider experience along
+                with API Consumer \nmanagement via a [Developer
+                Portal](../../platform-capabilities/developer-portal/).  \n\nWhile
+                Apigee Edge comes with a number of different delivery options,
+                \nnewer SaaS deliveries seem to be getting pushed more towards
+                \n[Apigee X](../apigee-x/).\n\nPolicies for Apigee Edge API
+                Gateways are configured with XML and can be \naccessed via a UI,
+                CLI, and API.\n\nApigee Edge has a few different gateway
+                offerings, including both a microgateway \nhybrid approach.\n"
+            downstreamProtocols:
+              type: array
+              items:
+                type: string
+                example: HTTP/1.1
+              example:
+                - HTTP/1.1
+            gatewayCapabilities:
+              type: array
+              items:
+                type: string
+                example: Custom Code Execution
+              example:
+                - Custom Code Execution
+                - Protocol Transformation
+                - Versioning
+                - Traffic Management
+                - Mediation
+            license:
+              type: string
+              example: Proprietary
+            name:
+              type: string
+              example: Apigee Edge
+            platformCapabilities:
+              type: array
+              items:
+                type: string
+                example: API Design
+              example:
+                - API Design
+                - API Gateway
+                - Analytics
+                - Monetization
+                - Monitoring
+                - Developer Portal
+                - Threat Protection
+            policies:
+              type: array
+              items:
+                type: object
+                properties:
+                  capabilities:
+                    type: array
+                    items:
+                      type: string
+                      example: Cache Lookup
+                    example:
+                      - Cache Lookup
+                      - Cache Invalidation
+                      - Cache Population
+                      - Cache Target Response
+                      - Concurrent Rate Limit
+                      - Quota
+                      - Quota Reset
+                      - Spike Arrest
+                  category:
+                    type: string
+                    example: Traffic Management
+              example:
+                - capabilities:
+                    - Cache Lookup
+                    - Cache Invalidation
+                    - Cache Population
+                    - Cache Target Response
+                    - Concurrent Rate Limit
+                    - Quota
+                    - Quota Reset
+                    - Spike Arrest
+                  category: Traffic Management
+                - capabilities:
+                    - Platform Data Lookup
+                    - Request Transformation
+                    - Response Transformation
+                    - Context Persistence
+                    - Custom Data Storage
+                    - JSON to XML
+                    - XML to JSON
+                    - SOAP Validation
+                    - OpenAPI Validation
+                    - Custom Exception Handling
+                    - XSL Tranformations
+                  category: Mediation
+                - capabilities:
+                    - IP Access Rules
+                    - Basic Authentication
+                    - API Key
+                    - OAuth 2.0
+                    - OAuth 1.0
+                    - HMAC
+                    - JSON Threat Protection
+                    - XML Threat Protection
+                    - JWS
+                    - JWT
+                    - LDAP
+                    - Message Inspection
+                    - SAML Assertion
+                  category: Security
+                - capabilities:
+                    - Platform Integration
+                    - Java
+                    - JavaScript
+                    - Python
+                    - Message Logging
+                    - HTTP Callout
+                    - Statistics Collection
+                  category: Extension
+            provider:
+              type: string
+              nullable: true
+              example: Google Cloud Platform
+            researchDate:
+              type: string
+              example: 2021-10
+            upstreamProtocols:
+              type: array
+              items:
+                type: string
+                example: HTTP/1.1
+              example:
+                - HTTP/1.1
+    PlatformCapability:
+      type: object
+      properties:
+        class:
+          type: array
+          items:
+            type: string
+            example: platform-capability
+          example:
+            - platform-capability
+        links:
+          type: array
+          items:
+            type: object
+            properties:
+              href:
+                type: string
+                example: /api/platform-capabilities/threat-protection
+              rel:
+                type: array
+                items:
+                  type: string
+                  example: self
+                example:
+                  - self
+          example:
+            - href: /api/platform-capabilities/threat-protection
+              rel:
+                - self
+        properties:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Threat Protection
