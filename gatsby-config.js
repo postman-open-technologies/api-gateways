@@ -1,6 +1,6 @@
 const siteUrl =
   process.env.NETLIFY == "true"
-    ? "https://gateways.netlify.app"
+    ? "https://gateways.fyi"
     : process.env.NODE_ENV === "development"
     ? "http://localhost:8000"
     : "http://localhost:9000";

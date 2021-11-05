@@ -4,4 +4,4 @@
 
 This repo represents research collected on various API Gateways.
 
-On the Web: https://gateways.netlify.app
+On the Web: https://gateways.fyi
