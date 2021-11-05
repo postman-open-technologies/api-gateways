@@ -1,0 +1,583 @@
+{
+    "info": {
+        "_postman_id": "ab067c9b-4eb8-408f-8ade-708004bda02f",
+        "name": "API Gateways",
+        "description": "[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/10354132-ab067c9b-4eb8-408f-8ade-708004bda02f?action=collection%2Ffork&collection-url=entityId%3D10354132-ab067c9b-4eb8-408f-8ade-708004bda02f%26entityType%3Dcollection%26workspaceId%3Df5c5ab05-0656-42a5-a11d-0403c02c9897)\n\nAPI Gateways\n============\n\nResearch collected for the most popular API Gateways.\n\nOverview\n--------\n\nThe first wave of API Gateways, historically, were offered as a component within larger API Management platforms. As the industry evolved, a new wave of API Gateways were introduced to provide solutions to a changing landscape. Some of these gateway providers are now supplementing their standalone offering with additional tools, often centered around a management approach more conducive to internal API lifecycles.\n\nPresented here is a comprehensive, yet not entirely exhaustive, list of popular API Gateways in use today. A few areas of research have been highlighted:\n\n*   Platform Capabilities\n*   Gateway Capabilities\n*   Delivery Models\n\nWhy use an API Gateway?\n-----------------------\n\nAPI Gateways are often a means of centralizing control between API Producers and Consumers. This can take a few different shapes:\n\n*   Creating a façade pattern to present a RESTful API in front of legacy services.\n*   Enforcing authentication and authorization.\n*   Rate limiting traffic.\n*   Routing to static or dynamic targets (e.g., phased rollouts, canary deployments).\n\nReal-world API Gateway deployments\n----------------------------------\n\nWhile many API Gateways are looking to cover both the external and internal use cases associated with APIs, it's often common these days to see multiple gateways deployed inside a single environment.\n\nTypically, this may take the form of a first-wave gateway platform such as Apigee Edge for external APIs and more lightweight alternatives, such as{\" \"} Kong, for internal use cases.\n\nThis multi-gateway reality is becoming a new normal for API practitioners today.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Gateways",
+            "item": [
+                {
+                    "name": "All Gateways",
+                    "id": "618b7866-87a3-40f2-b912-c4b4b9fb4b0c",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{url}}/gateways",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "gateways"
+                            ]
+                        },
+                        "description": "All Gateways"
+                    },
+                    "response": [
+                        {
+                            "id": "fc0d192c-e38c-42fa-93a2-5300208e8e9e",
+                            "name": "All Gateways Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/gateways",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "gateways"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.siren+json",
+                                    "enabled": true
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n    \"class\": [\n        \"gateways\"\n    ],\n    \"entities\": [\n        {\n            \"class\": [\n                \"gateway\"\n            ],\n            \"properties\": {\n                \"name\": \"Apigee Edge\",\n                \"provider\": \"Google Cloud Platform\",\n                \"license\": \"Proprietary\",\n                \"researchDate\": \"2021-10\",\n                \"description\": \"Apigee Edge is a first-generation, commercial gateway platform. \\nIt includes a fully-integrated API Provider experience along with API Consumer \\nmanagement via a [Developer Portal](../../platform-capabilities/developer-portal/).  \\n\\nWhile Apigee Edge comes with a number of different delivery options, \\nnewer SaaS deliveries seem to be getting pushed more towards \\n[Apigee X](../apigee-x/).\\n\\nPolicies for Apigee Edge API Gateways are configured with XML and can be \\naccessed via a UI, CLI, and API.\\n\\nApigee Edge has a few different gateway offerings, including both a microgateway \\nhybrid approach.\\n\",\n                \"platformCapabilities\": [\n                    \"API Design\",\n                    \"API Gateway\",\n                    \"Analytics\",\n                    \"Monetization\",\n                    \"Monitoring\",\n                    \"Developer Portal\",\n                    \"Threat Protection\"\n                ],\n                \"gatewayCapabilities\": [\n                    \"Custom Code Execution\",\n                    \"Protocol Transformation\",\n                    \"Versioning\",\n                    \"Traffic Management\",\n                    \"Mediation\"\n                ],\n                \"customCodeSupport\": [\n                    \"Java\",\n                    \"JavaScript\",\n                    \"Node.js\",\n                    \"Python\"\n                ],\n                \"upstreamProtocols\": [\n                    \"HTTP/1.1\"\n                ],\n                \"downstreamProtocols\": [\n                    \"HTTP/1.1\"\n                ],\n                \"deliveryModels\": [\n                    \"SaaS\",\n                    \"Customer Managed (Cloud)\",\n                    \"Customer Managed (On-Premises)\",\n                    \"Hybrid\"\n                ],\n                \"policies\": [\n                    {\n                        \"category\": \"Traffic Management\",\n                        \"capabilities\": [\n                            \"Cache Lookup\",\n                            \"Cache Invalidation\",\n                            \"Cache Population\",\n                            \"Cache Target Response\",\n                            \"Concurrent Rate Limit\",\n                            \"Quota\",\n                            \"Quota Reset\",\n                            \"Spike Arrest\"\n                        ]\n                    },\n                    {\n                        \"category\": \"Mediation\",\n                        \"capabilities\": [\n                            \"Platform Data Lookup\",\n                            \"Request Transformation\",\n                            \"Response Transformation\",\n                            \"Context Persistence\",\n                            \"Custom Data Storage\",\n                            \"JSON to XML\",\n                            \"XML to JSON\",\n                            \"SOAP Validation\",\n                            \"OpenAPI Validation\",\n                            \"Custom Exception Handling\",\n                            \"XSL Tranformations\"\n                        ]\n                    },\n                    {\n                        \"category\": \"Security\",\n                        \"capabilities\": [\n                            \"IP Access Rules\",\n                            \"Basic Authentication\",\n                            \"API Key\",\n                            \"OAuth 2.0\",\n                            \"OAuth 1.0\",\n                            \"HMAC\",\n                            \"JSON Threat Protection\",\n                            \"XML Threat Protection\",\n                            \"JWS\",\n                            \"JWT\",\n                            \"LDAP\",\n                            \"Message Inspection\",\n                            \"SAML Assertion\"\n                        ]\n                    },\n                    {\n                        \"category\": \"Extension\",\n                        \"capabilities\": [\n                            \"Platform Integration\",\n                            \"Java\",\n                            \"JavaScript\",\n                            \"Python\",\n                            \"Message Logging\",\n                            \"HTTP Callout\",\n                            \"Statistics Collection\"\n                        ]\n                    }\n                ]\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"urn:gateway:product\"\n                    ],\n                    \"title\": \"Product\",\n                    \"href\": \"https://cloud.google.com/apigee\"\n                },\n                {\n                    \"rel\": [\n                        \"urn:gateway:docs\"\n                    ],\n                    \"title\": \"Documentation\",\n                    \"href\": \"https://docs.apigee.com/api-platform/get-started/get-started\"\n                },\n                {\n                    \"rel\": [\n                        \"urn:gateway:logo\"\n                    ],\n                    \"title\": \"Logo\",\n                    \"href\": \"/images/gateways/apigee-edge.svg\"\n                },\n                {\n                    \"rel\": [\n                        \"urn:gateway:related\"\n                    ],\n                    \"title\": \"Apigee X\",\n                    \"href\": \"../apigee-x\"\n                },\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/gateways/apigee-edge\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"gateway\"\n            ],\n            \"properties\": {\n                \"name\": \"Apigee X\",\n                \"provider\": \"Google Cloud Platform\",\n                \"license\": \"Proprietary\",\n                \"researchDate\": \"2021-10\",\n                \"description\": \"The Apigee X platform is a newer release than the [Apigee Edge](../apigee-edge/)\\nplatform.  It is a SaaS-only delivery with a few different policy options than\\nwhat's provided by Apigee Edge.\\n\",\n                \"platformCapabilities\": [\n                    \"API Design\",\n                    \"API Gateway\",\n                    \"Analytics\",\n                    \"Monetization\",\n                    \"Monitoring\",\n                    \"Developer Portal\",\n                    \"Threat Protection\"\n                ],\n                \"gatewayCapabilities\": [\n                    \"Custom Code Execution\",\n                    \"Protocol Transformation\",\n                    \"Versioning\",\n                    \"Traffic Management\",\n                    \"Mediation\"\n                ],\n                \"customCodeSupport\": [\n                    \"Java\",\n                    \"JavaScript\",\n                    \"Node.js\",\n                    \"Python\"\n                ],\n                \"upstreamProtocols\": [\n                    \"HTTP/1.1\",\n                    \"GraphQL\"\n                ],\n                \"downstreamProtocols\": [\n                    \"HTTP/1.1\",\n                    \"gRPC\",\n                    \"GraphQL\"\n                ],\n                \"deliveryModels\": [\n                    \"SaaS\"\n                ],\n                \"policies\": [\n                    {\n                        \"category\": \"Traffic Management\",\n                        \"capabilities\": [\n                            \"Cache Lookup\",\n                            \"Cache Invalidation\",\n                            \"Cache Population\",\n                            \"Cache Target Response\",\n                            \"Quota\",\n                            \"Quota Reset\",\n                            \"Spike Arrest\"\n                        ]\n                    },\n                    {\n                        \"category\": \"Mediation\",\n                        \"capabilities\": [\n                            \"Platform Data Lookup\",\n                            \"Request Transformation\",\n                            \"Response Transformation\",\n                            \"CORS\",\n                            \"Context Persistence\",\n                            \"GraphQL\",\n                            \"Custom Data Storage\",\n                            \"JSON to XML\",\n                            \"XML to JSON\",\n                            \"SOAP Validation\",\n                            \"OpenAPI Validation\",\n                            \"Custom Exception Handling\",\n                            \"XSL Tranformations\",\n                            \"Monetization Limits\"\n                        ]\n                    },\n                    {\n                        \"category\": \"Security\",\n                        \"capabilities\": [\n                            \"IP Access Rules\",\n                            \"Basic Authentication\",\n                            \"API Key\",\n                            \"OAuth 2.0\",\n                            \"OAuth 1.0\",\n                            \"HMAC\",\n                            \"JSON Threat Protection\",\n                            \"XML Threat Protection\",\n                            \"JWS\",\n                            \"JWT\",\n                            \"Message Inspection\",\n                            \"SAML Assertion\"\n                        ]\n                    },\n                    {\n                        \"category\": \"Extension\",\n                        \"capabilities\": [\n                            \"Data Collection\",\n                            \"HTTP Callout\",\n                            \"gRPC Callout\",\n                            \"Java\",\n                            \"JavaScript\",\n                            \"Python\",\n                            \"Message Logging\",\n                            \"Statistics Collection\"\n                        ]\n                    }\n                ]\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"urn:gateway:product\"\n                    ],\n                    \"title\": \"Product\",\n                    \"href\": \"https://cloud.google.com/apigee\"\n                },\n                {\n                    \"rel\": [\n                        \"urn:gateway:docs\"\n                    ],\n                    \"title\": \"Documentation\",\n                    \"href\": \"https://docs.apigee.com/api-platform/get-started/get-started\"\n                },\n                {\n                    \"rel\": [\n                        \"urn:gateway:logo\"\n                    ],\n                    \"title\": \"Logo\",\n                    \"href\": \"/images/gateways/apigee-x.svg\"\n                },\n                {\n                    \"rel\": [\n                        \"urn:gateway:related\"\n                    ],\n                    \"title\": \"Apigee Edge\",\n                    \"href\": \"../apigee-edge\"\n                },\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/gateways/apigee-x\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"gateway\"\n            ],\n            \"properties\": {\n                \"name\": \"Kong\",\n                \"provider\": \"Kong\",\n                \"license\": \"Proprietary, Open Source (Apache-2.0)\",\n                \"researchDate\": \"2021-10\",\n                \"description\": \"Kong is presented as both an open source API Gateway and as an enterprise\\nplatform named Kong Konnect.  The platform consists of an API Gateway, \\na Service Mesh, a Developer Portal, an API client, and more.\\n\\nKong has gained a strong footing for internal use cases, leading to its\\nintegrations with Kubernetes and Envoy.\\n\",\n                \"platformCapabilities\": [\n                    \"API Design\",\n                    \"API Gateway\",\n                    \"Analytics\",\n                    \"Monitoring\",\n                    \"Developer Portal\",\n                    \"Threat Protection\"\n                ],\n                \"gatewayCapabilities\": [\n                    \"Custom Code Execution\",\n                    \"Protocol Transformation\",\n                    \"Traffic Management\",\n                    \"Mediation\"\n                ],\n                \"customCodeSupport\": [\n                    \"Lua\"\n                ],\n                \"upstreamProtocols\": [\n                    \"HTTP/1.1\",\n                    \"HTTP/2\",\n                    \"gRPC\",\n                    \"GraphQL\",\n                    \"Kafka\"\n                ],\n                \"downstreamProtocols\": [\n                    \"HTTP/1.1\",\n                    \"HTTP/2\",\n                    \"GraphQL\"\n                ],\n                \"deliveryModels\": [\n                    \"SaaS\",\n                    \"Customer Managed (Cloud)\",\n                    \"Customer Managed (On-Premises)\"\n                ],\n                \"policies\": [\n                    {\n                        \"category\": \"Traffic Management\",\n                        \"capabilities\": [\n                            \"Canary Release\",\n                            \"GraphQL Caching\",\n                            \"Rate Limiting\",\n                            \"Mocking\",\n                            \"Cache Lookup\",\n                            \"Cache Invalidation\",\n                            \"Cache Population\",\n                            \"Cache Target Response\",\n                            \"Quota\",\n                            \"Request Size Limiting\"\n                        ]\n                    },\n                    {\n                        \"category\": \"Mediation\",\n                        \"capabilities\": [\n                            \"GraphQL to REST\",\n                            \"Request Transformation\",\n                            \"Response Transformation\",\n                            \"Context Persistence\",\n                            \"JSON to XML\"\n                        ]\n                    },\n                    {\n                        \"category\": \"Security\",\n                        \"capabilities\": [\n                            \"IP Access Rules\",\n                            \"Basic Authentication\",\n                            \"API Key\",\n                            \"OAuth 2.0\",\n                            \"HMAC\",\n                            \"JWT\",\n                            \"LDAP\",\n                            \"Message Inspection\",\n                            \"SAML Assertion\",\n                            \"Mutual TLS\",\n                            \"OpenID Connect\",\n                            \"HashiCorp Vault Authentication\",\n                            \"Okta\",\n                            \"Let's Encrypt\",\n                            \"Bot Detection\",\n                            \"CORS\",\n                            \"Access Control Lists\"\n                        ]\n                    },\n                    {\n                        \"category\": \"Extension\",\n                        \"capabilities\": [\n                            \"Serverless Integrations\",\n                            \"Monitoring Integrations\",\n                            \"Statistics Collection\",\n                            \"Message Logging\"\n                        ]\n                    }\n                ]\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"urn:gateway:product\"\n                    ],\n                    \"title\": \"Product\",\n                    \"href\": \"https://konghq.com/\"\n                },\n                {\n                    \"rel\": [\n                        \"urn:gateway:docs\"\n                    ],\n                    \"title\": \"Documentation\",\n                    \"href\": \"https://docs.konghq.com/\"\n                },\n                {\n                    \"rel\": [\n                        \"urn:gateway:logo\"\n                    ],\n                    \"title\": \"Logo\",\n                    \"href\": \"/images/gateways/kong.svg\"\n                },\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/gateways/kong\"\n                }\n            ]\n        }\n    ],\n    \"links\": [\n        {\n            \"rel\": [\n                \"self\"\n            ],\n            \"href\": \"/api/gateways/\"\n        }\n    ]\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Single Gateway",
+                    "id": "7c29c35a-278e-43c7-9466-bd9c6b944b47",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{url}}/gateways/:gatewayId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "gateways",
+                                ":gatewayId"
+                            ],
+                            "variable": [
+                                {
+                                    "id": "b9d5ded5-b4cc-42b0-a397-cf2e7c0c8d28",
+                                    "key": "gatewayId",
+                                    "value": "kong",
+                                    "type": "any"
+                                }
+                            ]
+                        },
+                        "description": "Single Gateway"
+                    },
+                    "response": [
+                        {
+                            "id": "b5f184fe-28c0-4eb6-ac63-a1d6802d11b2",
+                            "name": "Single Gateway Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/gateways/:gatewayId",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "gateways",
+                                        ":gatewayId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "gatewayId",
+                                            "value": "kong"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.siren+json",
+                                    "enabled": true
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n    \"class\": [\n        \"gateway\"\n    ],\n    \"properties\": {\n        \"name\": \"Kong\",\n        \"provider\": \"Kong\",\n        \"license\": \"Proprietary, Open Source (Apache-2.0)\",\n        \"researchDate\": \"2021-10\",\n        \"description\": \"Kong is presented as both an open source API Gateway and as an enterprise\\nplatform named Kong Konnect.  The platform consists of an API Gateway, \\na Service Mesh, a Developer Portal, an API client, and more.\\n\\nKong has gained a strong footing for internal use cases, leading to its\\nintegrations with Kubernetes and Envoy.\\n\",\n        \"platformCapabilities\": [\n            \"API Design\",\n            \"API Gateway\",\n            \"Analytics\",\n            \"Monitoring\",\n            \"Developer Portal\",\n            \"Threat Protection\"\n        ],\n        \"gatewayCapabilities\": [\n            \"Custom Code Execution\",\n            \"Protocol Transformation\",\n            \"Traffic Management\",\n            \"Mediation\",\n            \"OpenAPI Integration\"\n        ],\n        \"customCodeSupport\": [\n            \"Lua\"\n        ],\n        \"upstreamProtocols\": [\n            \"HTTP/1.1\",\n            \"HTTP/2\",\n            \"gRPC\",\n            \"GraphQL\",\n            \"Kafka\"\n        ],\n        \"downstreamProtocols\": [\n            \"HTTP/1.1\",\n            \"HTTP/2\",\n            \"GraphQL\"\n        ],\n        \"deliveryModels\": [\n            \"SaaS\",\n            \"Customer Managed (Cloud)\",\n            \"Customer Managed (On-Premises)\"\n        ],\n        \"policies\": [\n            {\n                \"category\": \"Traffic Management\",\n                \"capabilities\": [\n                    \"Canary Release\",\n                    \"GraphQL Caching\",\n                    \"Rate Limiting\",\n                    \"Mocking\",\n                    \"Cache Lookup\",\n                    \"Cache Invalidation\",\n                    \"Cache Population\",\n                    \"Cache Target Response\",\n                    \"Quota\",\n                    \"Request Size Limiting\"\n                ]\n            },\n            {\n                \"category\": \"Mediation\",\n                \"capabilities\": [\n                    \"GraphQL to REST\",\n                    \"Request Transformation\",\n                    \"Response Transformation\",\n                    \"Context Persistence\",\n                    \"JSON to XML\"\n                ]\n            },\n            {\n                \"category\": \"Security\",\n                \"capabilities\": [\n                    \"IP Access Rules\",\n                    \"Basic Authentication\",\n                    \"API Key\",\n                    \"OAuth 2.0\",\n                    \"HMAC\",\n                    \"JWT\",\n                    \"LDAP\",\n                    \"Message Inspection\",\n                    \"SAML Assertion\",\n                    \"Mutual TLS\",\n                    \"OpenID Connect\",\n                    \"HashiCorp Vault Authentication\",\n                    \"Okta\",\n                    \"Let's Encrypt\",\n                    \"Bot Detection\",\n                    \"CORS\",\n                    \"Access Control Lists\"\n                ]\n            },\n            {\n                \"category\": \"Extension\",\n                \"capabilities\": [\n                    \"Serverless Integrations\",\n                    \"Monitoring Integrations\",\n                    \"Statistics Collection\",\n                    \"Message Logging\"\n                ]\n            }\n        ]\n    },\n    \"links\": [\n        {\n            \"rel\": [\n                \"urn:gateway:product\"\n            ],\n            \"title\": \"Product\",\n            \"href\": \"https://konghq.com/\"\n        },\n        {\n            \"rel\": [\n                \"urn:gateway:docs\"\n            ],\n            \"title\": \"Documentation\",\n            \"href\": \"https://docs.konghq.com/\"\n        },\n        {\n            \"rel\": [\n                \"urn:gateway:logo\"\n            ],\n            \"title\": \"Logo\",\n            \"href\": \"/images/gateways/kong.svg\"\n        },\n        {\n            \"rel\": [\n                \"self\"\n            ],\n            \"href\": \"/api/gateways/kong\"\n        }\n    ]\n}"
+                        }
+                    ],
+                    "variable": [
+                        {
+                            "id": "b9d5ded5-b4cc-42b0-a397-cf2e7c0c8d28",
+                            "key": "gatewayId",
+                            "value": "kong",
+                            "type": "any"
+                        }
+                    ]
+                }
+            ],
+            "id": "a4095fac-ddc1-4808-993b-b55bf78e62f3"
+        },
+        {
+            "name": "Platform Capabilities",
+            "item": [
+                {
+                    "name": "All Platform Capabilities",
+                    "id": "9455b324-2361-4234-9392-00f20986562b",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{url}}/platform-capabilities",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "platform-capabilities"
+                            ]
+                        },
+                        "description": "All Platform Capabilities"
+                    },
+                    "response": [
+                        {
+                            "id": "347cd410-055a-4731-a1f0-ddb939bd4ae9",
+                            "name": "All Platform Capabilities Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/platform-capabilities",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "platform-capabilities"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.siren+json",
+                                    "enabled": true
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n    \"class\": [\n        \"platform-capabilities\"\n    ],\n    \"entities\": [\n        {\n            \"class\": [\n                \"platform-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"Analytics\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/platform-capabilities/analytics\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"platform-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"API Design\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/platform-capabilities/api-design\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"platform-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"API Gateway\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/platform-capabilities/api-gateway\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"platform-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"Developer Portal\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/platform-capabilities/developer-portal\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"platform-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"Monetization\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/platform-capabilities/monetization\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"platform-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"Monitoring\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/platform-capabilities/monitoring\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"platform-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"Threat Protection\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/platform-capabilities/threat-protection\"\n                }\n            ]\n        }\n    ],\n    \"links\": [\n        {\n            \"rel\": [\n                \"self\"\n            ],\n            \"href\": \"/api/platform-capabilities/\"\n        }\n    ]\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Single Platform Capability",
+                    "id": "caa6d2f3-9fe5-467b-825b-26ddc0be050c",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{url}}/platform-capabilities/:capabilityId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "platform-capabilities",
+                                ":capabilityId"
+                            ],
+                            "variable": [
+                                {
+                                    "id": "1eeac190-f1f0-4f52-955c-db8e51769a22",
+                                    "key": "capabilityId",
+                                    "value": "threat-protection",
+                                    "type": "any"
+                                }
+                            ]
+                        },
+                        "description": "Single Platform Capability"
+                    },
+                    "response": [
+                        {
+                            "id": "f97f8dfc-5625-4f39-bc8f-c3b7cf1f2828",
+                            "name": "Single Platform Capability Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/platform-capabilities/:capabilityId",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "platform-capabilities",
+                                        ":capabilityId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "capabilityId",
+                                            "value": "threat-protection"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.siren+json",
+                                    "enabled": true
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n    \"class\": [\n        \"platform-capability\"\n    ],\n    \"properties\": {\n        \"name\": \"Threat Protection\"\n    },\n    \"links\": [\n        {\n            \"rel\": [\n                \"self\"\n            ],\n            \"href\": \"/api/platform-capabilities/threat-protection\"\n        }\n    ]\n}"
+                        }
+                    ],
+                    "variable": [
+                        {
+                            "id": "1eeac190-f1f0-4f52-955c-db8e51769a22",
+                            "key": "capabilityId",
+                            "value": "threat-protection",
+                            "type": "any"
+                        }
+                    ]
+                }
+            ],
+            "id": "caba8b12-a790-4795-91a9-630e78bfcebc"
+        },
+        {
+            "name": "Gateway Capabilities",
+            "item": [
+                {
+                    "name": "All Gateway Capabilities",
+                    "id": "b555f422-c832-49c0-8a80-a405cc147871",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{url}}/gateway-capabilities",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "gateway-capabilities"
+                            ]
+                        },
+                        "description": "All Gateway Capabilities"
+                    },
+                    "response": [
+                        {
+                            "id": "a61cdb75-2e65-4860-be05-635f60edda91",
+                            "name": "All Gateway Capabilities Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/gateway-capabilities",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "gateway-capabilities"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.siren+json",
+                                    "enabled": true
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n    \"class\": [\n        \"gateway-capabilities\"\n    ],\n    \"entities\": [\n        {\n            \"class\": [\n                \"gateway-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"Custom Code Execution\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/gateway-capabilities/custom-code-execution\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"gateway-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"Mediation\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/gateway-capabilities/mediation\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"gateway-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"Protocol Transformation\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/gateway-capabilities/protocol-transformation\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"gateway-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"Traffic Management\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/gateway-capabilities/traffic-management\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"gateway-capability\"\n            ],\n            \"properties\": {\n                \"name\": \"Versioning\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/gateway-capabilities/versioning\"\n                }\n            ]\n        }\n    ],\n    \"links\": [\n        {\n            \"rel\": [\n                \"self\"\n            ],\n            \"href\": \"/api/gateway-capabilities/\"\n        }\n    ]\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Single Gateway Capability",
+                    "id": "b34ba2c8-9b65-411d-98e6-1936ca6e92ad",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{url}}/gateway-capabilities/:capabilityId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "gateway-capabilities",
+                                ":capabilityId"
+                            ],
+                            "variable": [
+                                {
+                                    "id": "3f94dbaa-5fa0-459c-9f85-40589fd2075e",
+                                    "key": "capabilityId",
+                                    "value": "custom-code-execution",
+                                    "type": "any"
+                                }
+                            ]
+                        },
+                        "description": "Single Gateway Capability"
+                    },
+                    "response": [
+                        {
+                            "id": "392452ad-e7a4-4f6d-92cc-e79d0f8ff788",
+                            "name": "Single Gateway Capability Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/gateway-capabilities/:capabilityId",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "gateway-capabilities",
+                                        ":capabilityId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "capabilityId",
+                                            "value": "custom-code-execution"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.siren+json",
+                                    "enabled": true
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n    \"class\": [\n        \"gateway-capability\"\n    ],\n    \"properties\": {\n        \"name\": \"Custom Code Execution\"\n    },\n    \"links\": [\n        {\n            \"rel\": [\n                \"self\"\n            ],\n            \"href\": \"/api/gateway-capabilities/custom-code-execution\"\n        }\n    ]\n}"
+                        }
+                    ],
+                    "variable": [
+                        {
+                            "id": "3f94dbaa-5fa0-459c-9f85-40589fd2075e",
+                            "key": "capabilityId",
+                            "value": "custom-code-execution",
+                            "type": "any"
+                        }
+                    ]
+                }
+            ],
+            "id": "26386bb0-2c4a-4fe4-891b-4b0fb4092731"
+        },
+        {
+            "name": "Delivery Models",
+            "item": [
+                {
+                    "name": "All Delivery Models",
+                    "id": "d6f50f34-25f5-43ba-b2b9-7d15ea55b5a5",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{url}}/delivery-models",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "delivery-models"
+                            ]
+                        },
+                        "description": "All Delivery Models"
+                    },
+                    "response": [
+                        {
+                            "id": "27424efb-1037-49f3-96a3-e9dea8fdd238",
+                            "name": "All Delivery Models Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/delivery-models",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "delivery-models"
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.siren+json",
+                                    "enabled": true
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n    \"class\": [\n        \"delivery-models\"\n    ],\n    \"entities\": [\n        {\n            \"class\": [\n                \"delivery-model\"\n            ],\n            \"properties\": {\n                \"name\": \"Customer Managed (Cloud)\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/delivery-models/customer-managed-cloud\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"delivery-model\"\n            ],\n            \"properties\": {\n                \"name\": \"Customer Managed (On-Premises)\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/delivery-models/customer-managed-on-premises\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"delivery-model\"\n            ],\n            \"properties\": {\n                \"name\": \"Hybrid\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/delivery-models/hybrid\"\n                }\n            ]\n        },\n        {\n            \"class\": [\n                \"delivery-model\"\n            ],\n            \"properties\": {\n                \"name\": \"SaaS\",\n                \"description\": \"Deployed in the provider's cloud environment.\"\n            },\n            \"links\": [\n                {\n                    \"rel\": [\n                        \"self\"\n                    ],\n                    \"href\": \"/api/delivery-models/saas\"\n                }\n            ]\n        }\n    ],\n    \"links\": [\n        {\n            \"rel\": [\n                \"self\"\n            ],\n            \"href\": \"/api/delivery-models/\"\n        }\n    ]\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Single Delivery Model",
+                    "id": "571d426d-d36a-414c-9c46-a65e6e9cca4f",
+                    "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                    },
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{url}}/delivery-models/:modelId",
+                            "host": [
+                                "{{url}}"
+                            ],
+                            "path": [
+                                "delivery-models",
+                                ":modelId"
+                            ],
+                            "variable": [
+                                {
+                                    "id": "9bf80c59-3702-49af-b527-f0415741eed4",
+                                    "key": "modelId",
+                                    "value": "saas",
+                                    "type": "any"
+                                }
+                            ]
+                        },
+                        "description": "Single Delivery Model"
+                    },
+                    "response": [
+                        {
+                            "id": "327c821f-2c97-424d-9e69-08c965e3d3a0",
+                            "name": "Single Delivery Model Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/delivery-models/:modelId",
+                                    "host": [
+                                        "{{url}}"
+                                    ],
+                                    "path": [
+                                        "delivery-models",
+                                        ":modelId"
+                                    ],
+                                    "variable": [
+                                        {
+                                            "key": "modelId",
+                                            "value": "saas"
+                                        }
+                                    ]
+                                }
+                            },
+                            "status": "OK",
+                            "code": 200,
+                            "_postman_previewlanguage": "json",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/vnd.siren+json",
+                                    "enabled": true
+                                }
+                            ],
+                            "cookie": [],
+                            "responseTime": null,
+                            "body": "{\n    \"class\": [\n        \"delivery-model\"\n    ],\n    \"properties\": {\n        \"name\": \"SaaS\",\n        \"description\": \"Deployed in the provider's cloud environment.\"\n    },\n    \"links\": [\n        {\n            \"rel\": [\n                \"self\"\n            ],\n            \"href\": \"/api/delivery-models/saas\"\n        }\n    ]\n}"
+                        }
+                    ],
+                    "variable": [
+                        {
+                            "id": "9bf80c59-3702-49af-b527-f0415741eed4",
+                            "key": "modelId",
+                            "value": "saas",
+                            "type": "any"
+                        }
+                    ]
+                }
+            ],
+            "id": "1157ff7a-8e25-46ad-b84a-8e006c29bd5d"
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "41df92bd-b33b-40a8-bb1a-bb20f9c0c798",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "f9ed48c2-2459-4e29-b276-2f41e14ce6d7",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "75dd0f27-18ac-45e7-b63f-c45a875339f2",
+            "key": "url",
+            "value": "https://gateways.fyi/api"
+        }
+    ]
+}
