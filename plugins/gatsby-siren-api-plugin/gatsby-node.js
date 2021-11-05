@@ -86,7 +86,7 @@ exports.createPages = async ({ actions, graphql }, pluginOptions) => {
   for ([dir, responses] of Object.entries(apiResponses)) {
     const dirPath = path.join(apiPath, dir);
     fs.writeFileSync(
-      path.join(dirPath, "index.json"),
+      path.join(dirPath, "index.html"),
       JSON.stringify({
         class: [dir],
         entities: responses,

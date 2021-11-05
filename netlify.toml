@@ -8,26 +8,6 @@
   to = "/overview/introduction/"
   status = 302
 
-[[redirects]]
-  from = "/api/gateways/"
-  to = "/api/gateways/index.json"
-  status = 200
-
-[[redirects]]
-  from = "/api/delivery-models/"
-  to = "/api/delivery-models/index.json"
-  status = 200
-
-[[redirects]]
-  from = "/api/gateway-capabilities/"
-  to = "/api/gateway-capabilities/index.json"
-  status = 200
-
-[[redirects]]
-  from = "/api/platform-capabilities/"
-  to = "/api/platform-capabilities/index.json"
-  status = 200
-
 [[headers]]
   for = "/api/*"
   [headers.values]
