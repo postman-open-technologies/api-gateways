@@ -40,7 +40,11 @@ exports.createPages = async ({ actions, graphql }, pluginOptions) => {
       return;
     }
 
-    const dirPath = path.join(apiPath, node.parent.relativeDirectory);
+    const dirPath = path.join(
+      apiPath,
+      node.parent.relativeDirectory,
+      node.parent.name
+    );
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true });
     }
@@ -49,7 +53,8 @@ exports.createPages = async ({ actions, graphql }, pluginOptions) => {
     const filePath = path.join(
       apiPath,
       node.parent.relativeDirectory,
-      node.parent.name
+      node.parent.name,
+      "index.html"
     );
 
     const json = yaml.load(node.parent.internal.content);
