@@ -9,7 +9,7 @@ const EditDoc = ({ location = { pathname: "" }, className }) => {
   let file = "";
 
   if (parts.length === 1) {
-    file = `/src/pages/${parts[0]}/index.js}`;
+    file = `/src/pages/${parts[0]}/index.js`;
   } else if (parts.length > 1) {
     if (parts[0] === "overview") {
       file = `/src/content/${parts.join("/")}.md`;
