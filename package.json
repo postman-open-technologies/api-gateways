@@ -8,16 +8,20 @@
     "gatsby"
   ],
   "scripts": {
+    "bff": "node bff.js",
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "postinstall": "npm run bff"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.16",
+    "axios": "^0.21.1",
+    "base-64": "1.0.0",
     "bootstrap": "4.5",
     "gatsby": "next",
     "gatsby-cli": "^4.0.0-zz-next.5",
@@ -32,6 +36,7 @@
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-yaml": "next",
     "jquery": "3.5.1",
+    "node-fetch": "2.6.1",
     "node-sass": "^6.0.1",
     "popper.js": "1.16.1",
     "react": "^17.0.1",
@@ -41,7 +46,14 @@
     "react-typography": "^0.16.20",
     "sanitize-html": "^2.5.1",
     "showdown": "^1.9.1",
+    "shelljs": "0.8.4",
+    "terser": "5.6.1",
     "typography": "0.16.19",
     "uuid": "^8.3.2"
+  },
+  "allow": {
+    "pmTech": [
+      "*"
+    ]
   }
 }
