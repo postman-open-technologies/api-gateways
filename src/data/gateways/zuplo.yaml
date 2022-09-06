@@ -1,0 +1,92 @@
+---
+class:
+  - gateway
+
+properties:
+  name: Zuplo API Management
+  provider: Zuplo, Inc
+  license: Proprietary
+  status: Pending Review
+  researchDate: 2022-10
+  description: >
+    Zuplo is a fresh take on the traditional API Management/Gateway platform: designed for developers and made for the
+    edge, Zuplo offers effortless programmability and GitOps integration. Merge a PR to deploy to the edge at over 200 
+    data-centers worldwide in <20s. Deep integration with OpenAPI including linting, automated testing and more. 
+  platformCapabilities:
+    - API Gateway
+    - API Design
+    - OpenAPI linting
+    - Developer Portal
+    - Monitoring
+    - Threat Protection
+    - Analytics
+    - Documentation
+  gatewayCapabilities:
+    - Custom Code Execution
+    - OpenAPI enforcement
+    - Mediation
+    - Traffic Management
+    - OpenAPI Integration
+    - Versioning
+    - Mocking
+  customCodeSupport:
+    - TypeScript
+    - JavaScript
+  upstreamProtocols:
+    - HTTP/1.1
+    - HTTP/2.0
+  downstreamProtocols:
+    - HTTP/1.1
+    - HTTP/2.0
+  deliveryModels:
+    - SaaS
+    - Customer Managed (Cloud)
+    - Customer Managed (On-Premises)
+    - Hybrid
+  policies:
+    - category: Security
+      capabilities:
+        - API Key Authentication 
+        - IP Access Rules
+        - JWT authorizers (Custom, Auth0, AWS Cognito)
+        - Basic Authentication
+        - AWS IAM roles and policies
+        - CORS
+        - WAF
+        - ACL (Access Control List)
+        - Audit Logs
+    - category: Traffic Management
+      capabilities:
+        - Cache Lookup
+        - Cache Invalidation
+        - Cache Eviction
+        - Rate Limiting (Dynamic)
+    - category: Mediation
+      capabilities:
+        - Request Transformation
+        - Response Transformation
+        - OpenAPI Validation
+        - URL Rewriting
+        - JSON Validation
+        - Request Size Limit
+        - Request Termination
+    - category: Extensions
+      capabilities:
+        - AWS Lambda integration
+        - GitHub GitOps integration
+        - BitBucket GitOps integration
+        - GitLab GitOps integration
+
+links:
+  - rel:
+      - urn:gateway:product
+    title: Product
+    href: https://zuplo.com
+  - rel:
+      - urn:gateway:docs
+    title: Documentation
+    href: https://zuplo.com/docs
+  - rel:
+      - urn:gateway:logo
+    title: Logo
+    href: /images/gateways/zuplo.svg
